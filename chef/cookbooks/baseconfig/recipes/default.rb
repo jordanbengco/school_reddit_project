@@ -99,14 +99,21 @@ execute 'yarn_add_webpacker' do
   environment 'HOME' => '/home/vagrant'
 end
 
-#execute 'load_db_schema' do
-#  user 'vagrant'
-#  cwd '/home/vagrant/project/project/'
+execute 'load_db_schema' do
+  user 'vagrant'
+  cwd '/home/vagrant/project/project/'
 #  command 'RAILS_ENV=production rails db:schema:load'
-#  environment 'HOME' => '/home/vagrant'
-#end
+  command 'rails db:schema:load'
+  environment 'HOME' => '/home/vagrant'
+end
 
-#maybe use: RAILS_ENV=production rake db:create db:migrate db:seed
+execute 'seed_db' do
+  user 'vagrant'
+  cwd '/home/vagrant/project/project/'
+#  command 'RAILS_ENV=production rails db:seed'
+  command 'rails db:seed'
+  environment 'HOME' => '/home/vagrant'
+end
 
 #execute 'precompile' do
 #  user 'vagrant'
@@ -115,8 +122,6 @@ end
 #  environment 'HOME' => '/home/vagrant'
 #end
 
-
-#rails s -e production works in production
 execute 'rails_run' do
   user 'vagrant'
   cwd '/home/vagrant/project/project/'
