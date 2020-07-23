@@ -1,2 +1,24 @@
-<h1>CMPT 470</h1>
-<p>Find me in app/views/main/index.html.erb</p>
+<% if current_user %>
+  Logged in as <%= current_user.email %>.
+  <%= link_to "Log Out", logout_path %>
+  <br>
+  
+  <% if current_user.is_admin %>
+    The current_user is an admin <br>
+  <% else %>
+    The current_user is not an admin <br>
+  <% end %>
+
+  
+<% else %>
+  <%= link_to "Sign Up", signup_path %> or 
+  <%= link_to "Log In", login_path %>
+<% end %>
+
+<p id=”notice”><%= notice %></p>
+
+<h1>CMPT 470 Group 9 Project</h1>
+<p>Welcome to our project, currently you can create an account and log in and out through the links at the top of the page</p>
+
+<%= link_to 'List of Users', users_path %>
+
