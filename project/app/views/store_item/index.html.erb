@@ -30,7 +30,13 @@
         <td>Test Item</td>
         <td>This is a test item</td>
         <td>100(TODO)</td>
-        <td><%= button_to 'Buy Item', buy_path %></td>		
+		
+		<% if current_user %>
+			<td><%= button_to 'Buy Item', buy_path %></td>
+		<% else %>
+			<td><b>Login to purchase</b></td>
+		<% end %>
+		
       </tr>
   </tbody>
 
