@@ -29,12 +29,12 @@
       <tr>
         <td>testStoreItem</td>
         <td>This is a test item</td>
-        <td>10(CURRENCY TODO)</td>
+        <td>1</td>
 		
 		<% if current_user && current_user.store_items.any?{|item| item.name = "testStoreItem"}  %>
 			<td><b>You already own this</b></td>
 		<% elsif current_user%>
-			<td><%= button_to 'Buy Item', buy_path(:name => "testStoreItem", :description => "This is a test item", :cost => 10) %></td>
+			<td><%= button_to 'Buy Item', buy_path(:name => "testStoreItem", :description => "This is a test item", :cost => 1) %></td>
 		<% else %>
 			<td><b>Login to purchase</b></td>
 		<% end %>

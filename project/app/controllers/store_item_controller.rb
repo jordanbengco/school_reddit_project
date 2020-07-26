@@ -7,7 +7,7 @@ class StoreItemController < ApplicationController
 	def buy
 		@name = params[:name]
 		@description = params[:description]
-		@cost = params[:cost]
+		@cost = params[:cost].to_i
 		
 		logger.debug @name
 		logger.debug @description
@@ -25,11 +25,16 @@ class StoreItemController < ApplicationController
 			return
 		end
 		
-		
+		if user.score < @cost
+			flash[:notice] = "You cannot afford this item"
+			redirect_to store_url
+			return
+		end
 	
-		@store_item = user.store_items.create(name: "testStoreItem", description: "test description", cost:10)		
+		@store_item = user.store_items.create(name: @name, description: @description, cost:@cost)
 		respond_to do |format|
 		  if @store_item.save
+			user.update_column(:score, (user.score - @cost))
 		  	logger.debug "NEW ITEM BOUGHT"
 			format.html { redirect_to store_url, notice: 'Item purchased and added to the current user' }
 		  else
