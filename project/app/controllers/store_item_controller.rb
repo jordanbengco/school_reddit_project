@@ -1,11 +1,18 @@
 class StoreItemController < ApplicationController
-	def isItemOwnedByUser
-	
+	helper_method :store_inventory	
+	def store_inventory
+		#@store_inventory ||= User.find(session[:user_id])
 	end
 
-	
-
 	def buy
+		@name = params[:name]
+		@description = params[:description]
+		@cost = params[:cost]
+		
+		logger.debug @name
+		logger.debug @description
+		logger.debug @cost
+		
 		user = User.find_by_id(session[:user_id])
 		logger.debug user.inspect
 		logger.debug user.store_items.inspect	
@@ -13,10 +20,9 @@ class StoreItemController < ApplicationController
 		logger.debug user.store_items.size 
 		
 		if user.store_items.any?{|item| item.name = "testStoreItem"}
-			flash.now[:alert] = "You already own that item!"
-			logger.debug "DUPLICATE ITEM"
-			render js: "alert('Item already owned');"
-			return			
+			flash[:notice] = "You already own this item"
+			redirect_to store_url
+			return
 		end
 		
 		

@@ -5,7 +5,7 @@
   <% end %>
   <%= link_to "Log Out", logout_path %>
   <br>
-  Points remaining:   <% current_user %>
+  Points remaining:  <%= current_user.score %>
 <% else %>
   <%= link_to "Sign Up", signup_path %> or 
   <%= link_to "Log In", login_path %>
@@ -27,14 +27,14 @@
 
   <tbody>
       <tr>
-        <td>Test Item</td>
+        <td>testStoreItem</td>
         <td>This is a test item</td>
-        <td>100(CURRENCY TODO)</td>
+        <td>10(CURRENCY TODO)</td>
 		
 		<% if current_user && current_user.store_items.any?{|item| item.name = "testStoreItem"}  %>
 			<td><b>You already own this</b></td>
 		<% elsif current_user%>
-			<td><%= button_to 'Buy Item', buy_path %></td>
+			<td><%= button_to 'Buy Item', buy_path(:name => "testStoreItem", :description => "This is a test item", :cost => 10) %></td>
 		<% else %>
 			<td><b>Login to purchase</b></td>
 		<% end %>
