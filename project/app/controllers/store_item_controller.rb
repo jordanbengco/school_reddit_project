@@ -19,7 +19,7 @@ class StoreItemController < ApplicationController
 		logger.debug "Number of store items bought: "
 		logger.debug user.store_items.size 
 		
-		if user.store_items.any?{|item| item.name = "testStoreItem"}
+		if user.store_items.any?{|item| item.name == @name}
 			flash[:notice] = "You already own this item"
 			redirect_to store_url
 			return

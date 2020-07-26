@@ -1,0 +1,2 @@
+class StoreItemListing < ApplicationRecord
+end

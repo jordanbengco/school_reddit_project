@@ -11,9 +11,11 @@
   <%= link_to "Log In", login_path %>
 <% end %>
 
+
 <p id=”notice”><%= notice %></p>
 
-<h1>Store(DEBUG PAGE)</h1>
+<h1>Cosmetic Item Store</h1>
+<h2>Buy exclusive emoticons and profile customization options</h2>
 
 <table>
   <thead>
@@ -26,22 +28,25 @@
   </thead>
 
   <tbody>
+    <% StoreItemListing.find_each do |listing| %>
       <tr>
-        <td>testStoreItem</td>
-        <td>This is a test item</td>
-        <td>1</td>
-		
-		<% if current_user && current_user.store_items.any?{|item| item.name = "testStoreItem"}  %>
+        <td><%= listing.name %></td>
+        <td><%= listing.description %></td>
+        <td><%= listing.cost %></td>
+
+		<% if current_user && current_user.store_items.any?{|item| item.name == listing.name}  %>
 			<td><b>You already own this</b></td>
 		<% elsif current_user%>
-			<td><%= button_to 'Buy Item', buy_path(:name => "testStoreItem", :description => "This is a test item", :cost => 1) %></td>
+			<td><%= button_to 'Buy Item', buy_path(:name => listing.name, :description => listing.description, :cost => listing.cost) %></td>
 		<% else %>
 			<td><b>Login to purchase</b></td>
 		<% end %>
+
       </tr>
+    <% end %>
   </tbody>
 </table>
-<br>
+
 
 <% if current_user %>
 <h2>You already own:</h2>
