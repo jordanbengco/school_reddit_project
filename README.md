@@ -5,8 +5,6 @@ default admin account has the username and password of (admin,admin)
 
 
 
-Access static files at localhost:8080/  for example:  http://localhost:8080/HelloWorld.jpg (TODO,this is for production deploys)
-
 
 Tutorials/resources used:
 https://guides.rubyonrails.org/getting_started.html#creating-the-blog-application

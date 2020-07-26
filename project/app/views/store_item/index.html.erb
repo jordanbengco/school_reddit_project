@@ -1,0 +1,80 @@
+<% if current_user %>
+  Logged in as <%= current_user.username %>
+  <% if current_user.is_admin %>
+    (ADMIN ACCOUNT)
+  <% end %>
+  <%= link_to "Log Out", logout_path %>
+  <br>
+  Points remaining:  <%= current_user.score %>
+<% else %>
+  <%= link_to "Sign Up", signup_path %> or 
+  <%= link_to "Log In", login_path %>
+<% end %>
+
+
+<p id=”notice”><%= notice %></p>
+
+<h1>Cosmetic Item Store</h1>
+<h2>Buy exclusive emoticons and profile customization options</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Cost</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% StoreItemListing.find_each do |listing| %>
+      <tr>
+        <td><%= listing.name %></td>
+        <td><%= listing.description %></td>
+        <td><%= listing.cost %></td>
+
+		<% if current_user && current_user.store_items.any?{|item| item.name == listing.name}  %>
+			<td><b>You already own this</b></td>
+		<% elsif current_user%>
+			<td><%= button_to 'Buy Item', buy_path(:name => listing.name, :description => listing.description, :cost => listing.cost) %></td>
+		<% else %>
+			<td><b>Login to purchase</b></td>
+		<% end %>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<% if current_user %>
+<h2>You already own:</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Cost</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+	<% current_user.store_items.each do |item| %>
+		<tr>
+			<td><%= item.name %></td>
+			<td><%= item.description %></td>
+			<td><%= item.cost %></td>
+		</tr>
+	<% end %>
+  </tbody>
+</table>
+<% end %>
+
+
+
+<br>
+<%= link_to 'Back', root_path %>
+
