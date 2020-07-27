@@ -3,4 +3,6 @@ class User < ApplicationRecord
   
   validates :email, presence: true
   validates :username, presence: true, uniqueness: true
+  
+  has_many :store_items, dependent: :destroy
 end

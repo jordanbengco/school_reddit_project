@@ -10,6 +10,8 @@
         <div class="navbar-header">
           <% if current_user %>
             Logged in as <%= current_user.username %>
+            <%= link_to 'List of Users', users_path %>
+            <%= link_to 'Store(TEST)', store_path %>
           <% else %>
             Not logged in. 
           <% end %>
@@ -29,11 +31,9 @@
   <!----------------------------- Navigation Bar ------------------------------>
 
 
-
   <!----------------------------- Show posts ---------------------------------->
   <p id=”notice”><%= notice %></p>
   <h1>TODO: ADD CREATED POSTS HERE</h1>
   <%= link_to 'List of Users', users_path %>
   <!----------------------------- Show posts ---------------------------------->
-
 </html>
