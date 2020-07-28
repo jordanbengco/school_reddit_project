@@ -1,0 +1,9 @@
+<%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
+  <p>
+  <%= form.hidden_field :author, value: current_user.username, readonly: true %>
+    <%= form.text_area :text %>
+  </p>
+  <p>
+    <%= form.submit "Post Comment" %>
+  </p>
+<% end %>

@@ -3,15 +3,25 @@
 </h1>
  
 <p>
-  Posted by <strong><%= @article.author %></strong>
-  on <strong><%= @article.time %></strong>
+  Posted on <strong><%= @article.time.strftime("%B %d %H:%M") %></strong>
+  by <strong><%= @article.author %></strong>
   <% if @article.created_at != @article.updated_at %>
-  	<br>Updated by <strong><%= @article.author %></strong> on <strong><%= @article.updated_at %></strong>
-  <% end %>
+  	<br>Updated on <strong><%= @article.updated_at.strftime("%B %d %H:%M") %></strong>
+  	by <strong><%= @article.author %></strong> 
+  <% end %><br>
+	<% if current_user && (current_user.username == @article.author || current_user.is_admin) %>
+        <%= link_to 'Edit', edit_article_path(@article) %> / 
+        <%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'You are about to delete this post. Are you sure?' } %><br>
+    <% end %>
 </p>
 
 <p>
   <%= @article.text %>
 </p>
+
+<h2>Comments</h2>
+<%= render @article.comments %>
+<%= render 'comments/form' %>
+
 
 <%= link_to 'Back', root_path %>
