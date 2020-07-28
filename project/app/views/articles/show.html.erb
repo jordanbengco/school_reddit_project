@@ -1,0 +1,17 @@
+<h1>
+  <strong><%= @article.title %></strong>
+</h1>
+ 
+<p>
+  Posted by <strong><%= @article.author %></strong>
+  on <strong><%= @article.time %></strong>
+  <% if @article.created_at != @article.updated_at %>
+  	<br>Updated by <strong><%= @article.author %></strong> on <strong><%= @article.updated_at %></strong>
+  <% end %>
+</p>
+
+<p>
+  <%= @article.text %>
+</p>
+
+<%= link_to 'Back', root_path %>

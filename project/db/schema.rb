@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_26_032344) do
+ActiveRecord::Schema.define(version: 2020_07_28_035419) do
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "text"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "author"
+    t.datetime "time"
+  end
 
   create_table "store_item_listings", force: :cascade do |t|
     t.string "name"
@@ -34,7 +43,7 @@ ActiveRecord::Schema.define(version: 2020_07_26_032344) do
     t.string "username"
     t.text "email"
     t.string "password_digest"
-    t.boolean "is_admin"
+    t.boolean "is_admin", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "score"
