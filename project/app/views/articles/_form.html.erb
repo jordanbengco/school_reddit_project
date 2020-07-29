@@ -22,14 +22,13 @@
   <p>
     <%= form.label :text %><br>
     <%= form.text_area :text %>
-  </p>
-  <p>
-    <%= form.hidden_field :author, value: current_user.username, readonly: true %>
+    <%= form.hidden_field :author, value: current_user.username, readonly: true if @article.new_record? %>
     <%= form.hidden_field :time, value: Time.now, readonly: true %>
+    <%= form.hidden_field :edit, value: current_user.username, readonly: true %>
   </p>
 
   <p>
-    <%= form.submit%>
+    <%= form.submit %>
   </p>
  
 <% end %>

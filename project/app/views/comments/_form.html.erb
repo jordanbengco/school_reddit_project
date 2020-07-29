@@ -1,9 +1,13 @@
 <%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
+
   <p>
-  <%= form.hidden_field :author, value: current_user.username, readonly: true %>
-    <%= form.text_area :text %>
+    <% if current_user %>
+      <%= form.hidden_field :author, value: current_user.username, readonly: true if @article %>
+      <%= form.text_area :text %>
+      <br><%= form.submit "Post Comment" %>
+    <% else %>
+      Login to comment
+    <% end %>
   </p>
-  <p>
-    <%= form.submit "Post Comment" %>
-  </p>
+
 <% end %>
