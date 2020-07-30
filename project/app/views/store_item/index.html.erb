@@ -1,16 +1,4 @@
-<% if current_user %>
-  Logged in as <%= current_user.username %>
-  <% if current_user.is_admin %>
-    (ADMIN ACCOUNT)
-  <% end %>
-  <%= link_to "Log Out", logout_path %>
-  <br>
-  Points remaining:  <%= current_user.score %>
-<% else %>
-  <%= link_to "Sign Up", signup_path %> or 
-  <%= link_to "Log In", login_path %>
-<% end %>
-
+<%= render 'main/header' %>
 
 <p id=”notice”><%= notice %></p>
 

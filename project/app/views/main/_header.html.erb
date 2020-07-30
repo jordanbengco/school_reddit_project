@@ -1,0 +1,26 @@
+<header class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <% if current_user %>
+          Logged in as <%= current_user.username %>
+          <%= link_to 'List of Users', users_path %>
+          <%= link_to 'Store(TEST)', store_path %>
+        <% else %>
+          Not logged in. 
+          <%= link_to 'List of Users', users_path %>
+          <%= link_to 'Store(TEST)', store_path %>
+        <% end %>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+          <%= link_to "Edit profile", edit_path %>
+          <%= link_to "Log Out", logout_path %>
+        <% else %>
+          <%= link_to "Sign Up", signup_path %> or 
+          <%= link_to "Log In", login_path %>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</header>

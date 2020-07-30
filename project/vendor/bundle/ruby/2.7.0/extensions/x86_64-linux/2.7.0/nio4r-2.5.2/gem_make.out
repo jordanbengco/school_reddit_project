@@ -1,5 +1,5 @@
 current directory: /home/jordan/Desktop/cmpt470_project/project/vendor/bundle/ruby/2.7.0/gems/nio4r-2.5.2/ext/nio4r
-/usr/bin/ruby2.7 -I /usr/lib/ruby/2.7.0 -r ./siteconf20200727-2546-ea7gqf.rb extconf.rb
+/usr/bin/ruby2.7 -I /usr/lib/ruby/2.7.0 -r ./siteconf20200729-6550-rchlpp.rb extconf.rb
 checking for unistd.h... yes
 checking for linux/aio_abi.h... yes
 checking for sys/select.h... yes
@@ -57,4 +57,4 @@ linking shared-object nio4r_ext.so
 
 current directory: /home/jordan/Desktop/cmpt470_project/project/vendor/bundle/ruby/2.7.0/gems/nio4r-2.5.2/ext/nio4r
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 nio4r_ext.so ./.gem.20200727-2546-mhzys4
+/usr/bin/install -c -m 0755 nio4r_ext.so ./.gem.20200729-6550-n4ipj7
