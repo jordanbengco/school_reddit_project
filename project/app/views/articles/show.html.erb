@@ -1,7 +1,7 @@
 <h1>
   <strong><%= @article.title %></strong>
 </h1>
-
+ 
 <p>
   Posted by <strong><%= @article.author %></strong>
   on <strong><%= @article.time %></strong>
@@ -13,7 +13,5 @@
 <p>
   <%= @article.text %>
 </p>
-<%= button_to 'Like', article_likes_path(@article), method: :post %>
-<%= @article.likes.count %>
 
 <%= link_to 'Back', root_path %>
