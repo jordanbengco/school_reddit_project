@@ -13,22 +13,27 @@
       </ul>
     </div>
   <% end %>
- 
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
- 
-  <p>
-    <%= form.label :text %><br>
-    <%= form.text_area :text %>
-    <%= form.hidden_field :author, value: current_user.username, readonly: true if @article.new_record? %>
-    <%= form.hidden_field :time, value: Time.now, readonly: true %>
-    <%= form.hidden_field :edit, value: current_user.username, readonly: true %>
-  </p>
 
-  <p>
-    <%= form.submit %>
-  </p>
+  <!-- If new record: Any logged in user, If edit record: must be admin or original author -->
+  <% if (@article.new_record? && current_user) || (@article.persisted? && (current_user && (current_user.username == @article.author || current_user.is_admin))) %>
+    <p>
+      <%= form.label :title %><br>
+      <%= form.text_field :title %>
+    </p>
+   
+    <p>
+      <%= form.label :text %><br>
+      <%= form.text_area :text %>
+      <%= form.hidden_field :author, value: current_user.username, readonly: true if @article.new_record? %>
+      <%= form.hidden_field :time, value: Time.now, readonly: true if @article.persisted? %>
+      <%= form.hidden_field :edit, value: current_user.username, readonly: true if @article.persisted? %>
+    </p>
+
+    <p>
+      <%= form.submit %>
+    </p>
+  <% else %>
+    You do not have permission for this post.
+  <% end %>
  
 <% end %>
