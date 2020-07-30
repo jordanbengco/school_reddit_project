@@ -1,0 +1,10 @@
+<p>
+  <% if comment %>
+  	<strong><%= comment.author %></strong> (<%= comment.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%B %d %H:%M") %>): <%= comment.text %><br>
+  <% end %>
+  <% if current_user && (current_user.username == comment.author || current_user.is_admin) %>
+      <%= link_to 'Delete', [comment.article, comment],
+               method: :delete,
+               data: { confirm: 'You are about to delete this comment. Are you sure?' } %>
+  <% end %>
+</p>

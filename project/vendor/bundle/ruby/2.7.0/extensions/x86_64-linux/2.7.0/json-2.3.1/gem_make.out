@@ -1,5 +1,5 @@
 current directory: /home/jordan/Desktop/cmpt470_project/project/vendor/bundle/ruby/2.7.0/gems/json-2.3.1/ext/json
-/usr/bin/ruby2.7 -I /usr/lib/ruby/2.7.0 -r ./siteconf20200727-16455-6q62sb.rb extconf.rb
+/usr/bin/ruby2.7 -I /usr/lib/ruby/2.7.0 -r ./siteconf20200729-6550-6my7c7.rb extconf.rb
 creating Makefile
 
 current directory: /home/jordan/Desktop/cmpt470_project/project/vendor/bundle/ruby/2.7.0/gems/json-2.3.1/ext/json

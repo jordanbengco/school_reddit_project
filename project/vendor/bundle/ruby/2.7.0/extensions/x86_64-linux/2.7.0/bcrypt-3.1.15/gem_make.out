@@ -1,5 +1,5 @@
 current directory: /home/jordan/Desktop/cmpt470_project/project/vendor/bundle/ruby/2.7.0/gems/bcrypt-3.1.15/ext/mri
-/usr/bin/ruby2.7 -I /usr/lib/ruby/2.7.0 -r ./siteconf20200727-2546-255pp4.rb extconf.rb
+/usr/bin/ruby2.7 -I /usr/lib/ruby/2.7.0 -r ./siteconf20200729-6550-c57sec.rb extconf.rb
 creating Makefile
 
 current directory: /home/jordan/Desktop/cmpt470_project/project/vendor/bundle/ruby/2.7.0/gems/bcrypt-3.1.15/ext/mri
@@ -16,4 +16,4 @@ linking shared-object bcrypt_ext.so
 
 current directory: /home/jordan/Desktop/cmpt470_project/project/vendor/bundle/ruby/2.7.0/gems/bcrypt-3.1.15/ext/mri
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 bcrypt_ext.so ./.gem.20200727-2546-10n3isv
+/usr/bin/install -c -m 0755 bcrypt_ext.so ./.gem.20200729-6550-1ibfxtg
