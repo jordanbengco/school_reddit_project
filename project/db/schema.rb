@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_28_035419) do
+ActiveRecord::Schema.define(version: 2020_07_29_230314) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 2020_07_28_035419) do
     t.datetime "updated_at", precision: 6, null: false
     t.text "author"
     t.datetime "time"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "article_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_likes_on_article_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "store_item_listings", force: :cascade do |t|
@@ -50,5 +59,7 @@ ActiveRecord::Schema.define(version: 2020_07_28_035419) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "likes", "articles"
+  add_foreign_key "likes", "users"
   add_foreign_key "store_items", "users"
 end
