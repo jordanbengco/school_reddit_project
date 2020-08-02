@@ -10,5 +10,18 @@ class ConversationsController < ApplicationController
     def show
         @conversation = current_user.mailbox.conversations.find(params[:id])
     end
+
+    # Create a new convo
+    def new
+        @recipients = User.all - [current_user] # user shouldnt be able to message themselves
+    end
+
+    # Send the message to correct recipient
+    def create    
+        recipient = User.find(params[:user_id])
+        receipt = current_user.send_message(recipient, params[:body], params[:subject])
+        redirect_to conversation_path(receipt.conversation)
+    end   
+    
     
 end
