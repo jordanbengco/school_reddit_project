@@ -14,7 +14,7 @@
       </div>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-          <%= link_to "Edit profile", edit_path %>
+          <%= link_to "Edit profile", edit_user_path(current_user) %>
           <%= link_to "Log Out", logout_path %>
         <% else %>
           <%= link_to "Sign Up", signup_path %> or 
