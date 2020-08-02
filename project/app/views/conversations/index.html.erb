@@ -1,4 +1,4 @@
-<h1> All Conversations </h1>
+<h1>Inbox</h1>
 
 <!-- Loop through all the conversations -->
 <% @conversations.each do |conversation| %>
@@ -8,5 +8,10 @@
 <% end %>
 
 <!-- Create a new conversation -->
-<%= link_to "New Conversation", new_conversation_path%>
+<div>
+  <%= link_to "New Conversation", new_conversation_path%>
+</div>
 
+<div>
+  <%= link_to "Back", root_path%>
+</div>
