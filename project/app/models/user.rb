@@ -4,10 +4,10 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :username, presence: true, uniqueness: true
   
-  # Adds the mailbox methods (such as send, reply, etc)
   has_many :store_items, dependent: :destroy
 
   # Allows messaging between users
+  # Adds the mailbox methods (such as send, reply, etc)
   acts_as_messageable
-  
+
 end
