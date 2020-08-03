@@ -2,9 +2,18 @@ Rails.application.routes.draw do
 
   root 'main#index'
   resources :users
+  
   resources :sessions, only: [:new, :create, :destroy]
+  
   resources :articles do
     resources :comments
+  end
+
+  # Uncomment if needed
+  # devise_for :users
+  # Messaging between users
+  resources :conversations do
+    resources :messages
   end
   
   get 'signup', to: 'users#new', as: 'signup'
