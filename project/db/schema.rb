@@ -83,5 +83,8 @@ ActiveRecord::Schema.define(version: 2020_08_04_193611) do
   add_foreign_key "dislikes", "users"
   add_foreign_key "likes", "articles"
   add_foreign_key "likes", "users"
+  add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id"
+  add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id"
+  add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id"
   add_foreign_key "store_items", "users"
 end

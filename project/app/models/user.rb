@@ -7,4 +7,8 @@ class User < ApplicationRecord
   has_many :store_items, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :dislikes, dependent: :destroy
+
+  # Allows messaging between users
+  # Adds the mailbox methods (such as send, reply, etc)
+  acts_as_messageable
 end

@@ -31,7 +31,9 @@ gem 'jbuilder', '~> 2.7'
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
 
-
+# Mailboxer (messaging between users)
+gem 'devise'
+gem 'mailboxer', github: 'mailboxer/mailboxer'
 
 
 # Use Active Storage variant
