@@ -19,8 +19,10 @@
 <p>
   <%= @article.text %>
 </p>
-<%= button_to 'Like', article_likes_path(@article), method: :post %>
-<%= @article.likes.count %>
+
+<%= button_to 'Like', article_likes_path(@article), method: :post,  remote: true %> <%= @article.likes.count %>
+<%= button_to 'Dislike', article_dislikes_path(@article), method: :post, remote: true %> <%= @article.dislikes.count %>
+
 
 <h2>Comments</h2>
 <%= render 'comments/form' %>

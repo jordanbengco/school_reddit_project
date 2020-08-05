@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments
     resources :likes
+    resources :dislikes
   end
 
   get 'signup', to: 'users#new', as: 'signup'

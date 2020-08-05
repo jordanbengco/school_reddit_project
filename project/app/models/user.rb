@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :store_items, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :dislikes, dependent: :destroy
 end
