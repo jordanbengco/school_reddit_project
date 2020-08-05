@@ -1,22 +1,22 @@
 class LikesController < ApplicationController
-  before_action :find_article
+  before_action :find_article, :current_user
   def create
     if !(already_liked?)
       #like
-      @like = @article.likes.create(user_id: current_user.id, article_id: @article.id)
-      @originalUser = @article.author
-      @originalUserId = User.find_by_username(@originalUser)
-      if (@originalUserId != current_user.id)
-        @originalUserId.increment!(:score)
+      @like = @article.likes.create(user_id: @current_user.id)
+      @originalUserName = @article.author
+      @originalUser = User.find_by_username(@originalUserName)
+      if (@originalUser != @current_user)
+        @originalUser.increment!(:score)
       end
       redirect_to article_path(@article)
     elsif already_liked?
       #unlike
-      @like = Like.find_by(params[user_id: current_user.id, article_id: @article.id])
-      @originalUser = @article.author
-      @originalUserId = User.find_by_username(@originalUser)
-      if (@originalUserId != current_user.id)
-        @originalUserId.decrement!(:score)
+      @like = Like.find_by(user_id: @current_user.id)
+      @originalUserName = @article.author
+      @originalUser = User.find_by_username(@originalUserName)
+      if (@originalUser != @current_user)
+        @originalUser.decrement!(:score)
       end
       @like.destroy
       redirect_to article_path(@article)
@@ -27,7 +27,7 @@ class LikesController < ApplicationController
   private
 
   def already_liked?
-    Like.where(user_id: current_user.id, article_id: @article.id).exists?
+    Like.where(user_id: @current_user.id, article_id: params[:article_id]).exists?
   end
 
   def find_article
