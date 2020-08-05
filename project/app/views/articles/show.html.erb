@@ -20,7 +20,7 @@
   <%= @article.text %>
 </p>
 
-<h2>Post History</h2>
+<h2>Comments</h2>
 <%= render 'comments/form' %>
 <%= render @article.comments.select(&:persisted?) %>
 
