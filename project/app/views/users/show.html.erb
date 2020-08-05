@@ -1,3 +1,5 @@
+<%= render 'main/header' %>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -22,3 +24,20 @@
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+
+<h2>Post History</h2>
+<table>
+    <% Article.all.each do |article| %>
+    	<% if article.author == @user.username %>
+	        <strong><%= link_to article.title, article_path(article) %></strong>
+	      <br>
+	        Posted on <%= article.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%B %d %H:%M") %>
+	      <br>
+	      <% if current_user && (current_user.username == article.author || current_user.is_admin) %>
+	          <%= link_to 'Edit', edit_article_path(article) %> / 
+	          <%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: 'You are about to delete this post. Are you sure?' } %><br>
+	      <% end %>
+	    <%end %>
+      <br>
+    <% end %>
+  </table>
