@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def unlike
     #unlike
-    @like = Like.find_by(user_id: @current_user.id)
+    @like = Like.find_by(user_id: @current_user.id, article_id: @article)
     @originalUserName = @article.author
     @originalUser = User.find_by_username(@originalUserName)
     if (@originalUser != @current_user)
@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
 
   def undislike
     #undislike
-    @dislike = Dislike.find_by(user_id: @current_user.id)
+    @dislike = Dislike.find_by(user_id: @current_user.id, article_id: @article)
     @dislike.destroy
   end
 
