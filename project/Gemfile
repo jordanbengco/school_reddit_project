@@ -33,7 +33,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 
 # Mailboxer (messaging between users)
 gem 'devise'
-gem 'mailboxer', github: 'mailboxer/mailboxer'
+gem 'mailboxer'
 
 
 # Use Active Storage variant

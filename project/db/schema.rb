@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_02_013945) do
+ActiveRecord::Schema.define(version: 2020_08_04_193611) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -29,6 +29,24 @@ ActiveRecord::Schema.define(version: 2020_08_02_013945) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["article_id"], name: "index_comments_on_article_id"
+  end
+
+  create_table "dislikes", force: :cascade do |t|
+    t.integer "article_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_dislikes_on_article_id"
+    t.index ["user_id"], name: "index_dislikes_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "article_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_likes_on_article_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
@@ -115,6 +133,10 @@ ActiveRecord::Schema.define(version: 2020_08_02_013945) do
   end
 
   add_foreign_key "comments", "articles"
+  add_foreign_key "dislikes", "articles"
+  add_foreign_key "dislikes", "users"
+  add_foreign_key "likes", "articles"
+  add_foreign_key "likes", "users"
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id"
