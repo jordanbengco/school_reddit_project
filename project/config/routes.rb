@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   resources :sessions, only: [:new, :create, :destroy]
   
-  resources :articles, param: :slug do
+  resources :articles do
     resources :comments
     resources :likes
     resources :dislikes

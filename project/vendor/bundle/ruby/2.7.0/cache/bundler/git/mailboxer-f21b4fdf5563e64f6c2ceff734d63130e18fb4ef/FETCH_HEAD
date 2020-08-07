@@ -1,0 +1,59 @@
+ddc40b9008ab8b6efdf9ee0ed409d7826a1bdae0		branch 'develop' of https://github.com/mailboxer/mailboxer
+3e148858879110c3258b46152b11e5bfc514dc04		branch 'master' of https://github.com/mailboxer/mailboxer
+cfc8a114700f2f5d3b865ad91df5c83f081b7007		branch 'rbx-fix' of https://github.com/mailboxer/mailboxer
+4b07a79bb1d656ba9b8d11ae6503e5a9b6a9cd42		branch 'refactor_receipts' of https://github.com/mailboxer/mailboxer
+c69dc42afc0084d260c2e8d7a044b77b002e374d		branch 'refactoring' of https://github.com/mailboxer/mailboxer
+1cb3b021a4153979fc5df11e1c93bb1fb2feda4b		branch 'rspec_3' of https://github.com/mailboxer/mailboxer
+c69dc42afc0084d260c2e8d7a044b77b002e374d		branch 'test-refactoring' of https://github.com/mailboxer/mailboxer
+7a2e9f346ecd30e7b1800a58e45ad7b20b65a71a	not-for-merge	tag 'v0.0.16' of https://github.com/mailboxer/mailboxer
+aeac5a0685ff5d82018eaead8fb0bf6134fc53a5	not-for-merge	tag 'v0.1.0' of https://github.com/mailboxer/mailboxer
+75c68083ed42569162793dda3c0efb4ba2495664	not-for-merge	tag 'v0.1.1' of https://github.com/mailboxer/mailboxer
+2c15ff992525e1fe8a32a95b8195cebb1eeafd19	not-for-merge	tag 'v0.1.2' of https://github.com/mailboxer/mailboxer
+6c92eb585e7b1959081ad6152d14f1f6d70216ef	not-for-merge	tag 'v0.1.3' of https://github.com/mailboxer/mailboxer
+c0eeae5e8b03768bc10d242fe7f4697f756ebfb9	not-for-merge	tag 'v0.1.4' of https://github.com/mailboxer/mailboxer
+117022c6d87cf9c5e766c2563e3b2b77b4e8f28d	not-for-merge	tag 'v0.10.0' of https://github.com/mailboxer/mailboxer
+f3f5ffb34fc4ab29b9251aadcb861a57606c340e	not-for-merge	tag 'v0.10.1' of https://github.com/mailboxer/mailboxer
+76806b11921b341fe488bb3a1c46bfcf5abfc6d5	not-for-merge	tag 'v0.10.2' of https://github.com/mailboxer/mailboxer
+5bb5305ce7d495d056532379b3af5a267d4fc639	not-for-merge	tag 'v0.10.3' of https://github.com/mailboxer/mailboxer
+92308ed52bc572b0c592e28e68f9ffb28acbd21a	not-for-merge	tag 'v0.11.0' of https://github.com/mailboxer/mailboxer
+bc0c23f7ae196e1636a5c7e8401aa8df5ebbc779	not-for-merge	tag 'v0.12.0' of https://github.com/mailboxer/mailboxer
+2f64031bb6364f8cb515de1ac1f67fd442e48546	not-for-merge	tag 'v0.12.0.rc1' of https://github.com/mailboxer/mailboxer
+a2a5ed224949d844100ae76fe3de3f167d494854	not-for-merge	tag 'v0.12.0.rc2' of https://github.com/mailboxer/mailboxer
+de641c9bf5ac5ee6f5c6713ef0a79471666bed1f	not-for-merge	tag 'v0.12.1' of https://github.com/mailboxer/mailboxer
+ba3f0a7819e6120e787185ce0263bfe57982a970	not-for-merge	tag 'v0.12.2' of https://github.com/mailboxer/mailboxer
+54277d6971af71c04bf50f5599e8efcba9f5ee60	not-for-merge	tag 'v0.12.3' of https://github.com/mailboxer/mailboxer
+3fc71ac8f9a1956afa2bbad9354eb484d1f17259	not-for-merge	tag 'v0.12.4' of https://github.com/mailboxer/mailboxer
+5612ca23e192e790bbefd053602fc5c06b0eca78	not-for-merge	tag 'v0.12.5' of https://github.com/mailboxer/mailboxer
+bb026caa61bc1f9b84999507498a237bbbc8b868	not-for-merge	tag 'v0.13.0' of https://github.com/mailboxer/mailboxer
+ea465146cc9dd4822f5b7a6d6dd96ba85d8c2210	not-for-merge	tag 'v0.14.0' of https://github.com/mailboxer/mailboxer
+848daff06538117b104449911a9d5ac029c8f668	not-for-merge	tag 'v0.15.0' of https://github.com/mailboxer/mailboxer
+d656c934cc9d3aa71c97718820d7d86f611bdc4c	not-for-merge	tag 'v0.15.1' of https://github.com/mailboxer/mailboxer
+372569bf44b5c1ed02e0c651ed1daaad6984c01a	not-for-merge	tag 'v0.2.0' of https://github.com/mailboxer/mailboxer
+b16c4e19ece401b08226fdc303b8f9c37a85671d	not-for-merge	tag 'v0.2.1' of https://github.com/mailboxer/mailboxer
+770d72dedc32fa5c4ceff722368e6029a4cf79b1	not-for-merge	tag 'v0.2.2' of https://github.com/mailboxer/mailboxer
+67bfa37a69c71a55e9d2e1f3059e6366f53ed77f	not-for-merge	tag 'v0.2.3' of https://github.com/mailboxer/mailboxer
+b44723f91954cbfe4ab818ca4f66f2600d9c201a	not-for-merge	tag 'v0.2.4' of https://github.com/mailboxer/mailboxer
+1ec58e5b645d4555c2a174d2c023031e3f6e93c1	not-for-merge	tag 'v0.2.5' of https://github.com/mailboxer/mailboxer
+99048cab3863195063a9e1658cb33257de50f943	not-for-merge	tag 'v0.3.0' of https://github.com/mailboxer/mailboxer
+dca7ff0310ffe30ae6c7c426b9fa41e03921a413	not-for-merge	tag 'v0.3.1' of https://github.com/mailboxer/mailboxer
+af8f1d2e617f029b6ef173e2b56af40eea8cc88c	not-for-merge	tag 'v0.3.2' of https://github.com/mailboxer/mailboxer
+19c4e34b6182b73e9a27289e59703e3a912dda0b	not-for-merge	tag 'v0.3.3' of https://github.com/mailboxer/mailboxer
+cee7a0851c02030008e99f3f9bd40abe4fa39f8b	not-for-merge	tag 'v0.4.0' of https://github.com/mailboxer/mailboxer
+b3d23596f2a9fb75cdf595de4790f7b3b7eec702	not-for-merge	tag 'v0.4.1' of https://github.com/mailboxer/mailboxer
+23a6ff1bb0f76951247861f0dcad3ed260cd4c7b	not-for-merge	tag 'v0.4.2' of https://github.com/mailboxer/mailboxer
+1a97d5c15b770c8943b3b927f63d7c2a2aa7e277	not-for-merge	tag 'v0.4.3' of https://github.com/mailboxer/mailboxer
+a6a3839ff610470889b07ff3684ef48859961c3c	not-for-merge	tag 'v0.5.0' of https://github.com/mailboxer/mailboxer
+2d158387e79e8818aebdbaa2fb9b34abd7e7394f	not-for-merge	tag 'v0.5.1' of https://github.com/mailboxer/mailboxer
+3fdbb9dcc210452aab3545b271c755626318743e	not-for-merge	tag 'v0.5.2' of https://github.com/mailboxer/mailboxer
+52f46aa78067ba043a1782d23544d2dd7e026855	not-for-merge	tag 'v0.5.3' of https://github.com/mailboxer/mailboxer
+dcfd8d04637b8dbc328b717db4aa2ebb1851016b	not-for-merge	tag 'v0.5.4' of https://github.com/mailboxer/mailboxer
+5427af3f8fd1d012845429bf2988e2c792c8bdcb	not-for-merge	tag 'v0.5.5' of https://github.com/mailboxer/mailboxer
+e91b606cb48e775c3e154bb64d560ba82bc542c0	not-for-merge	tag 'v0.6.0' of https://github.com/mailboxer/mailboxer
+c8fb35d04d93a4865ed3dc84a29bd0da0dc246b8	not-for-merge	tag 'v0.6.1' of https://github.com/mailboxer/mailboxer
+60b4ace422007942458739614ecea0999cf00e77	not-for-merge	tag 'v0.6.2' of https://github.com/mailboxer/mailboxer
+0dfea91c90f0cb09729281a479ac0754fdf88e51	not-for-merge	tag 'v0.6.3' of https://github.com/mailboxer/mailboxer
+1ee8d4aaec21dbb40aa39393228414fd877885c0	not-for-merge	tag 'v0.6.4' of https://github.com/mailboxer/mailboxer
+0da2adf69e4e9ffe85a7b01047c474a8c9e6e364	not-for-merge	tag 'v0.6.5' of https://github.com/mailboxer/mailboxer
+30ec1476d1ad2304d0588669288aaced44f22c43	not-for-merge	tag 'v0.7.0' of https://github.com/mailboxer/mailboxer
+a72698dc4f1537d29f9463a9efa07b2ee9cca56d	not-for-merge	tag 'v0.8.0' of https://github.com/mailboxer/mailboxer
+5d85a3ebb54ac003cb41daa731407099e7c46f9c	not-for-merge	tag 'v0.9.0' of https://github.com/mailboxer/mailboxer
