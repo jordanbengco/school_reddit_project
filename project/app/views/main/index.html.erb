@@ -23,7 +23,7 @@
         Posted on <%= article.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%B %d %H:%M") %> by <%= link_to article.author, user_path(article.author) %>
       <br>
       <% if current_user && (current_user.username == article.author || current_user.is_admin) %>
-          <%= link_to 'Edit', edit_article_path(article) %> / 
+          <%= link_to 'Edit', edit_article_path(article) %> /
           <%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: 'You are about to delete this post. Are you sure?' } %><br>
       <% end %>
       <br>
