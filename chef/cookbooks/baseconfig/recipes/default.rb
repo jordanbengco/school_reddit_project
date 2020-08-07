@@ -149,10 +149,11 @@ end
 #  command 'sudo service unicorn_rails start'
 #end
 
+#Run to clean folder for testing:
 #git clean -dfx 
 
-
-
+#run to regenerate schema file:
+#rails db:migrate RAILS_ENV=development
 
 
 
