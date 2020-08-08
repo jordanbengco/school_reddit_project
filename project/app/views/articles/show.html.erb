@@ -17,7 +17,7 @@
 </p>
 
 <p>
-  <%= @article.text %>
+  <%= @article.text.html_safe %><br>
 </p>
 
 <%= button_to 'Like', article_likes_path(@article), method: :post,  remote: true %> <%= @article.likes.count %>

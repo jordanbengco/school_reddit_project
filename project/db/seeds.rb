@@ -17,3 +17,4 @@ StoreItemListing.create(name: 'Test item 1', description: 'This is test item 1',
 StoreItemListing.create(name: 'Test item 2', description: 'This is test item 2', cost: 2)
 StoreItemListing.create(name: 'Test item 3', description: 'This is test item 3', cost: 3)
 
+Article.create(title: 'Hello World!', text: '<b>Hello World, here is an image:</b><br><img src="https://live.staticflickr.com/79/234433736_1b5e1f02cd_z.jpg" width="20%" height="20%"/><br>', author: 'admin')

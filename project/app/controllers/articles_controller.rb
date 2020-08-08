@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+
   def index
     @articles = Article.all
   end
@@ -17,7 +18,8 @@ class ArticlesController < ApplicationController
  
   def create
     @article = Article.new(article_params)
- 
+	@article.text = ActionController::Base.helpers.sanitize(@article.text)
+
     if @article.save
       redirect_to @article
     else
@@ -27,7 +29,8 @@ class ArticlesController < ApplicationController
  
   def update
     @article = Article.find(params[:id])
- 
+	params[:article][:text] = ActionController::Base.helpers.sanitize(params[:article][:text])
+
     if @article.update(article_params)
       redirect_to @article
     else
