@@ -21,5 +21,6 @@ StoreItemListing.create(name: 'Hello World Emoticon', description: 'Allows you t
 
 
 Article.create(title: 'Hello World!', text: '<b>Hello World, here is an image:</b><br><img src="https://live.staticflickr.com/79/234433736_1b5e1f02cd_z.jpg" width="20%" height="20%"/><br>', author: 'admin')
-Article.create(title: 'Custom Emoticon Test', text: '<b>Custom Emoticon:<br> [helloWorld] <br>', author: 'user1')
+Article.create(title: 'Custom Emoticon Test', text: '<b>Custom Emoticon:<br> [helloWorld] <br>', author: 'admin')
 Article.create(title: 'Youtube Test', text: '<b>Youtube Video:<br> [youtube: dQw4w9WgXcQ] <br>', author: 'user2')
+
