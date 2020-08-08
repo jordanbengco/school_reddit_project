@@ -9,7 +9,6 @@
   <% if @article.created_at != @article.updated_at %>
   	<br>Updated on <strong><%= @article.updated_at.in_time_zone('Pacific Time (US & Canada)').strftime("%B %d %H:%M") %></strong>
   	by <strong><%= @article.edit %></strong>
-
   <% end %><br>
 	<% if current_user && (current_user.username == @article.author || current_user.is_admin) %>
         <%= link_to 'Edit', edit_article_path(@article) %> /
@@ -20,11 +19,6 @@
 <p>
   <%= @article.text %>
 </p>
-
-<p>
-  <%= @article.content %>
-</p>
-
 
 <%= button_to 'Like', article_likes_path(@article), method: :post,  remote: true %> <%= @article.likes.count %>
 <%= button_to 'Dislike', article_dislikes_path(@article), method: :post, remote: true %> <%= @article.dislikes.count %>

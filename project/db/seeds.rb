@@ -17,4 +17,3 @@ StoreItemListing.create(name: 'Test item 1', description: 'This is test item 1',
 StoreItemListing.create(name: 'Test item 2', description: 'This is test item 2', cost: 2)
 StoreItemListing.create(name: 'Test item 3', description: 'This is test item 3', cost: 3)
 
-StoreItemListing.create(name: 'Hello World emoticon', description: 'A custom Hello World emoticon, type <helloWorld> in your post to use', cost: 1)
