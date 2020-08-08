@@ -64,7 +64,7 @@ class ArticlesController < ApplicationController
   end
  
   def show
-    @article = Article.find(params[:id])
+    @article = Article.find_by_id(params[:id])
 	#Write to a seperate render string, so the user can continue to edit in the original format
 	@article.render_text = handle_custom_tags(@article.text,@article.author)
   end
@@ -74,7 +74,7 @@ class ArticlesController < ApplicationController
   end
  
   def edit
-    @article = Article.find(params[:id])
+    @article = Article.find_by_id(params[:id])
   end
  
   def create
@@ -91,7 +91,7 @@ class ArticlesController < ApplicationController
   end
  
   def update
-    @article = Article.find(params[:id])
+    @article = Article.find_by_id(params[:id])
 	params[:article][:text] = ActionController::Base.helpers.sanitize(params[:article][:text])
 
 	#Write to a seperate render string, so the user can continue to edit in the original format
@@ -105,13 +105,17 @@ class ArticlesController < ApplicationController
   end
  
   def destroy
-    @article = Article.find(params[:id])
+    @article = Article.find_by_id(params[:id])
     @article.destroy
  
     redirect_to root_path
   end
  
   private
+    def set_article
+      @article = Article.find_by_id(params[:id])
+    end
+
     def article_params
       params.require(:article).permit(:title, :text, :author, :time, :edit, :render_text)
     end

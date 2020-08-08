@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2020_08_08_070607) do
     t.datetime "time"
     t.text "edit"
     t.text "render_text"
+    t.string "slug"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -130,6 +131,7 @@ ActiveRecord::Schema.define(version: 2020_08_08_070607) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "score"
+    t.string "slug"
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
