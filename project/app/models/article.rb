@@ -5,4 +5,5 @@ class Article < ApplicationRecord
     validates :title, presence: true, length: { minimum: 5 }
     validates :text, length: { maximum: 5000 }
     default_scope { order('created_at DESC')}
+	has_rich_text :content
 end

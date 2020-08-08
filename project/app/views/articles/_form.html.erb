@@ -1,5 +1,6 @@
+<%= javascript_pack_tag "application" %>
+
 <%= form_with model: @article, local: true do |form| %>
- 
   <% if @article.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -29,6 +30,12 @@
       <%= form.hidden_field :edit, value: current_user.username, readonly: true if @article.persisted? %>
     </p>
 
+	  <%= form.label :content %>
+	  <br>
+	  <%= form.rich_text_area :content %>
+
+	
+	<br>
     <p>
       <%= form.submit %>
     </p>
