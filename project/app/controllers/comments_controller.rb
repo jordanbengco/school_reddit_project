@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   def create
     @article = Article.find(params[:article_id])
     @comment = @article.comments.create(comment_params)
+    NewUserMailer.notify_user_post_comment(@article, @comment).deliver_now
     redirect_to article_path(@article)
   end
  

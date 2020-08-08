@@ -25,8 +25,8 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-	@user.is_admin = false
-	@user.score = 0
+	  @user.is_admin = false
+	  @user.score = 0
 
     respond_to do |format|
       if verify_recaptcha(model: @user) && @user.save
