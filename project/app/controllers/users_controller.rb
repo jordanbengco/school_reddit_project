@@ -30,6 +30,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if verify_recaptcha(model: @user) && @user.save
+        NewUserMailer.notify_user(@user).deliver_now
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
