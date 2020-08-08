@@ -6,8 +6,6 @@ class Article < ApplicationRecord
     validates :text, length: { maximum: 5000 }
     after_validation :set_slug, uniqueness: true, only: [:create, :update]
 
-    default_scope { order('created_at DESC')}
-
     def to_param
     	"#{id}-#{slug}"
     end
