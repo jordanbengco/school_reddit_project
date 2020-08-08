@@ -10,6 +10,9 @@ class ArticlesController < ApplicationController
 	if (!authorUserExists) || authorUser.is_admin || authorUser.store_items.any?{|item| item.name == 'Hello World Emoticon'}
 		text = text.gsub("[helloWorld]",'<img src="/emoticons/HelloWorld.jpg" width="128px" height="128px"/>');
 	end
+	if (!authorUserExists) || authorUser.is_admin || authorUser.store_items.any?{|item| item.name == 'Star Emoticon'}
+		text = text.gsub("[starEmoji]",'<img src="/emoticons/StarEmoji.jpg" width="128px" height="128px"/>');
+	end
 
 	#find and replace all youtube tags with the proper iframe code
 	#[youtube: dQw4w9WgXcQ] input example
