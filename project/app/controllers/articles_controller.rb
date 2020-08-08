@@ -1,6 +1,9 @@
 class ArticlesController < ApplicationController
   helper_method :handle_custom_tags
   def handle_custom_tags(text)
+
+	#TODO: order text changes in a way that allows for all types of media in 1 post.
+
 	text = ActionController::Base.helpers.sanitize(text)
 
 	#find and replace all emoji tags with the proper image. TODO: externalize this logic to read from two DB columns in the store_item table
@@ -33,6 +36,8 @@ class ArticlesController < ApplicationController
  
   def show
     @article = Article.find(params[:id])
+	#Write to a seperate render string, so the user can continue to edit in the original format
+	@article.render_text = handle_custom_tags(@article.text)
   end
  
   def new
@@ -46,8 +51,8 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
 
-	#TODO: change to write to a seperate render string, so the user can continue to edit in their original format
-	@article.text = handle_custom_tags(@article.text)
+	#Write to a seperate render string, so the user can continue to edit in the original format
+	@article.render_text = handle_custom_tags(@article.text)
 
     if @article.save
       redirect_to @article
@@ -60,8 +65,8 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
 	params[:article][:text] = ActionController::Base.helpers.sanitize(params[:article][:text])
 
-	#TODO: change to write to a seperate render string, so the user can continue to edit in their original format
-	params[:article][:text] = handle_custom_tags(params[:article][:text])
+	#Write to a seperate render string, so the user can continue to edit in the original format
+	params[:article][:render_text] = handle_custom_tags(params[:article][:text])
 
     if @article.update(article_params)
       redirect_to @article
@@ -79,6 +84,6 @@ class ArticlesController < ApplicationController
  
   private
     def article_params
-      params.require(:article).permit(:title, :text, :author, :time, :edit)
+      params.require(:article).permit(:title, :text, :author, :time, :edit, :render_text)
     end
 end
