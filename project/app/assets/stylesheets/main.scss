@@ -1,6 +1,14 @@
 // Place all the styles related to the Main controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.card-body{
+
+.card{
   background-color: white;
+  border-style: solid;
+  border-color: grey;
+  margin-bottom: 0.5em;
+}
+
+.card:hover{
+  border-color: black;
 }
