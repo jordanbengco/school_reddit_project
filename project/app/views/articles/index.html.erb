@@ -1,7 +1,7 @@
 <%= render 'main/header' %>
 
-<h1>Search Results</h1>
-<% @results.joins(:likes).select('articles.*, COUNT(likes.id) as lc').group('article_id').order('lc DESC').each do |result| %>
+<h1>Results</h1>
+<% @results.each do |result| %>
   <strong><%= link_to result.title, article_path(result) %></strong>
     <p> Likes: <%= result.likes.count %> Dislike: <%= result.dislikes.count %> </p>
     Posted on <%= result.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%B %d %H:%M") %> by <%= link_to result.author, user_path(result.author) %>

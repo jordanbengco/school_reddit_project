@@ -2,9 +2,12 @@ class ArticlesController < ApplicationController
   def index
     if params[:search].blank?
       redirect_to(root_path) and return
+    elsif params[:search] == 'top'
+      @results = Article.joins(:likes).select('articles.*, COUNT(likes.id) as lc').group('article_id').order('lc DESC')
+    elsif params[:search] == 'new'
+      @results = Article.order('created_at DESC').all
     else
-      @parameter = params[:search].downcase
-      @results = Article.all.where("lower(title) LIKE :search", search: "%#{@parameter}%")
+      @results = Article.all.where("lower(title) LIKE :search", search: "%#{params[:search].downcase}%")
     end
   end
  
