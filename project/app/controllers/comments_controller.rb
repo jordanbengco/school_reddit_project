@@ -2,7 +2,14 @@ class CommentsController < ApplicationController
   def create
     @article = Article.find(params[:article_id])
     @comment = @article.comments.create(comment_params)
-    NewUserMailer.notify_user_post_comment(@article, @comment).deliver_now
+
+    # send notification if recipient has them enabled
+    @username = @article.author        
+    @user = User.find_by username: @username
+    if @user.notifications == true
+      NewUserMailer.notify_user_post_comment(@article, @comment).deliver_now
+    end
+    
     redirect_to article_path(@article)
   end
  

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_05_011926) do
+ActiveRecord::Schema.define(version: 2020_08_09_040610) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -131,6 +131,7 @@ ActiveRecord::Schema.define(version: 2020_08_05_011926) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "score"
     t.string "slug"
+    t.boolean "notifications"
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
