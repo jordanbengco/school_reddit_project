@@ -31,6 +31,9 @@ gem 'jbuilder', '~> 2.7'
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
 
+# Unidecoder
+gem 'unidecoder'
+
 # Mailboxer (messaging between users)
 gem 'devise'
 gem 'mailboxer'

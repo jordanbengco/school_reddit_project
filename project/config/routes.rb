@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
   root 'main#index'
-  resources :users
-
+  resources :users, param: :slug
+  
   resources :sessions, only: [:new, :create, :destroy]
-
+  
   resources :articles do
     resources :comments
     resources :likes
