@@ -7,6 +7,10 @@
   <%= render 'header' %>
   <!----------------------------- Navigation Bar ------------------------------>
 
+  <!----------------------------- Search Bar ------------------------------>
+  <%= render 'articles/search' %>
+  <!----------------------------- Search Bar ------------------------------>
+
 
   <!----------------------------- Liked posts ---------------------------------->
   <p id=”notice”><%= notice %></p>
@@ -14,14 +18,9 @@
     <%= link_to 'Create a new post', new_article_path %>
   <% else %>
     <%= link_to 'Login to create a new post', login_path %>
-  <% end %><br><br>
-  <table>
-   <tr>
-    <th><h1>Liked Posts . . . . . . . .</h1></th>
-    <th><h1>Newest Posts</h1></th>
-   </tr>
-   <tr><td>
-    <% @articles.includes(:likes).order('likes.id DESC').limit(3).each do |article| %>
+  <% end %>
+    <h1>Most Liked Posts</h1>
+    <% @articles.joins(:likes).select('articles.*, COUNT(likes.id) as lc').group('article_id').order('lc DESC').limit(5).each do |article| %>
         <strong><%= link_to article.title, article_path(article) %></strong>
       <p> Likes: <%= article.likes.count %> Dislike: <%= article.dislikes.count %> </p>
         Posted on <%= article.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%B %d %H:%M") %> by <%= link_to article.author, user_path(article.author) %>
@@ -32,12 +31,13 @@
       <% end %>
       <br>
     <% end %>
+    <%= link_to 'View more liked posts', root_path %>
    </td>
 <!----------------------------- Liked posts ---------------------------------->
 
 <!----------------------------- Newest posts ---------------------------------->
-  <td>
-    <% @articles.order('created_at DESC').limit(3).each do |article| %>
+    <h1>New Posts</h1>
+    <% @articles.order('created_at DESC').limit(5).each do |article| %>
         <strong><%= link_to article.title, article_path(article) %></strong>
       <p> Likes: <%= article.likes.count %> Dislike: <%= article.dislikes.count %> </p>
         Posted on <%= article.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%B %d %H:%M") %> by <%= link_to article.author, user_path(article.author) %>
@@ -48,8 +48,8 @@
       <% end %>
       <br>
     <% end %>
-  </td></tr></table>
-
-  <br><br><br><%= link_to 'List of Users', users_path %>
+    <%= link_to 'View more new posts', root_path %>
 <!----------------------------- Newest posts ---------------------------------->
+
+  <br><%= link_to 'List of Users', users_path %>
 </html>

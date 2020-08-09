@@ -1,6 +1,11 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.all
+    if params[:search].blank?
+      redirect_to(root_path) and return
+    else
+      @parameter = params[:search].downcase
+      @results = Article.all.where("lower(title) LIKE :search", search: "%#{@parameter}%")
+    end
   end
  
   def show
@@ -48,6 +53,6 @@ class ArticlesController < ApplicationController
     end
 
     def article_params
-      params.require(:article).permit(:title, :text, :author, :time, :edit)
+      params.require(:article).permit(:title, :text, :author, :time, :edit, :search)
     end
 end
