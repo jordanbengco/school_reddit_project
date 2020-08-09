@@ -38,6 +38,7 @@ gem 'unidecoder'
 # Mailboxer (messaging between users)
 gem 'devise'
 gem 'mailboxer'
+gem 'figaro'
 
 
 # Use Active Storage variant

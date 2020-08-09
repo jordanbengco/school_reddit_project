@@ -34,6 +34,15 @@
     <%= form.label :password_confirmation %>
     <%= form.password_field :password_confirmation %>
   </div>
+
+  <div class="field">
+    <%= form.label :notifications, 'Enable E-mail Notifications:' %>
+    <%= form.label :notifications, "Yes", :value => true  %>
+    <%= form.radio_button :notifications, true %>
+    <%= form.label :notifications, "No", :value => false %>
+    <%= form.radio_button :notifications, false, :checked => true %>
+  </div>
+  
   <%= recaptcha_tags %>
   <div class="actions">
     <%= form.submit %>
