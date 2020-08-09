@@ -73,8 +73,8 @@ class ArticlesController < ApplicationController
  
   def show
     @article = Article.find_by_id(params[:id])
-	#Write to a seperate render string, so the user can continue to edit in the original format
-	@article.render_text = handle_custom_tags(@article.text,@article.author)
+	  #Write to a seperate render string, so the user can continue to edit in the original format
+	  @article.render_text = handle_custom_tags(@article.text,@article.author)
   end
  
   def new
@@ -92,13 +92,19 @@ class ArticlesController < ApplicationController
     @article.category_id = params[:category_id]
     @article.render_text = handle_custom_tags(@article.text,@article.author)
 
-    if @article.save 
+    if @article.save
+      redirect_to @article
+    else
+      render 'new'
+    end
+  end
  
   def create
     @article = Article.new(article_params)
+    @article.category_id = params[:category_id]
 
-	#Write to a seperate render string, so the user can continue to edit in the original format
-	@article.render_text = handle_custom_tags(@article.text,@article.author)
+	  #Write to a seperate render string, so the user can continue to edit in the original format
+	  @article.render_text = handle_custom_tags(@article.text,@article.author)
 
     if @article.save
       redirect_to @article
@@ -111,10 +117,10 @@ class ArticlesController < ApplicationController
     @article = Article.find_by_id(params[:id])
     @article.category_id = params[:category_id]
 
-	params[:article][:text] = ActionController::Base.helpers.sanitize(params[:article][:text])
+	  params[:article][:text] = ActionController::Base.helpers.sanitize(params[:article][:text])
 
-	#Write to a seperate render string, so the user can continue to edit in the original format
-	params[:article][:render_text] = handle_custom_tags(params[:article][:text],params[:article][:author])
+	  #Write to a seperate render string, so the user can continue to edit in the original format
+	  params[:article][:render_text] = handle_custom_tags(params[:article][:text],params[:article][:author])
 
     if @article.update(article_params)
       redirect_to @article

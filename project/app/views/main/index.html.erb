@@ -15,9 +15,9 @@
   <!----------------------------- Liked posts ---------------------------------->
   <p id=”notice”><%= notice %></p>
   <% if current_user %>
-    <h3><%= button_to 'Create a new post', new_article_path %></h3>
+    <h3><%= link_to 'Create a new post', new_article_path %></h3>
   <% else %>
-    <h3><%= button_to 'Login to create a new post', login_path %></h3>
+    <h3><%= link_to 'Login to create a new post', login_path %></h3>
   <% end %>
     <h1>Most Liked Posts</h1>
     <% @articles.joins(:likes).select('articles.*, COUNT(likes.id) as lc').group('article_id').order('lc DESC').limit(3).each do |article| %>
