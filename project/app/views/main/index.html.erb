@@ -10,33 +10,42 @@
 
 
   <!----------------------------- Show posts ---------------------------------->
-  <div class ="container">
-    <p id=”notice”><%= notice %></p>
-    <% if current_user %>
-      <%= link_to 'Create a new post', new_article_path %>
-    <% else %>
-      <%= link_to 'Login to create a new post', login_path %>
-    <% end %><br><br>
-    <table>
+  <div class ="container post">
+    <ul>
+      <li>
+        <p id=”notice”><%= notice %></p>
+        <% if current_user %>
+          <%= link_to 'Create a new post', new_article_path %>
+        <% else %>
+          <%= link_to 'Login to create a new post', login_path %>
+        <% end %><br><br>
+      </li>
       <% @articles.each do |article| %>
-        <div class = "card" onclick = "location.href= '<%= article_path(article)%>';" style="width: 20rem; height: 20rem"; >
-          <div class="card-body">
-            <h5 class="card-title"><%= link_to article.title, article_path(article) %></h5>
-            <h6 class="card-subtitle mb-2 text-muted">
-              Posted on <%= article.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%B %d %H:%M") %> by <%= article.author %>
-            </h6>
-            <p class="card-text"> <%= truncate(article.text) %> </p>
-            <p> Likes: <%= article.likes.count %> Dislike: <%= article.dislikes.count %> </p>
-            <p>
-              <% if current_user && (current_user.username == article.author || current_user.is_admin) %>
-                  <%= link_to 'Edit', edit_article_path(article) %> /
-                  <%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: 'You are about to delete this post. Are you sure?' } %>
-              <% end %>
-            </p>
+        <li>
+          <div class = "card post-content" onclick = "location.href= '<%= article_path(article)%>';" >
+            <div class = "post-image">
+              <%= image_tag "placeholder-600x400.png" %>
+            </div>
+
+            <div class="card-body">
+              <h5 class="card-title"><%= link_to article.title, article_path(article) %></h5>
+              <h6 class="card-subtitle mb-2 text-muted">
+                Posted on <%= article.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%B %d %H:%M") %> by <%= article.author %>
+              </h6>
+              <p class="card-text"> <%= truncate(article.text) %> </p>
+              <p> Likes: <%= article.likes.count %> Dislike: <%= article.dislikes.count %> </p>
+              <p>
+                <% if current_user && (current_user.username == article.author || current_user.is_admin) %>
+                    <%= link_to 'Edit', edit_article_path(article) %> /
+                    <%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: 'You are about to delete this post. Are you sure?' } %>
+                <% end %>
+              </p>
+            </div>
+
           </div>
-        </div>
+        </li>
       <% end %>
-    </table>
+    </ul>
   </div>
   <!----------------------------- Show posts ---------------------------------->
 </html>
