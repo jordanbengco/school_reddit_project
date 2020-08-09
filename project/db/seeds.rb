@@ -25,7 +25,7 @@ Article.create(
 title: 'Audio and Video Test', 
 text: 
 '[video: https://www.nps.gov/audiovideo/grca/FE1422E6-155D-451F-67271BA4F8D9DD79/grca-NRsunrise021080_480x270.mp4]
-[video: https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4]
+[video: https://www.w3schools.com/html/mov_bbb.mp4]
 [audio: https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3]
 [audio: https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3]',
 author: 'user3')
