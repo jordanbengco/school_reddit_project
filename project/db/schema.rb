@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2020_08_09_040610) do
     t.text "author"
     t.datetime "time"
     t.text "edit"
+    t.text "render_text"
     t.string "slug"
   end
 
