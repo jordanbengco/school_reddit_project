@@ -24,7 +24,7 @@
   <%= @user.score %>
 </p>
 
-<% if current_user.is_admin %>
+<% if current_user && current_user.is_admin %>
   <%= link_to 'Ban User', user_path(@user), method: :delete, data: { confirm: 'You are about to ban this user. This action cannot be undone. Are you sure?' } %> |
 <% end %>
 

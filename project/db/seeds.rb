@@ -17,3 +17,12 @@ StoreItemListing.create(name: 'Test item 1', description: 'This is test item 1',
 StoreItemListing.create(name: 'Test item 2', description: 'This is test item 2', cost: 2)
 StoreItemListing.create(name: 'Test item 3', description: 'This is test item 3', cost: 3)
 
+Category.create(name: 'General')
+Category.create(name: 'Funny')
+Category.create(name: 'Sports')
+Category.create(name: 'Gaming')
+Category.create(name: 'Pictures')
+Category.create(name: 'News')
+Category.create(name: 'Entertainment')
+Category.create(name: 'Technology')
+Category.create(name: 'Discussion')

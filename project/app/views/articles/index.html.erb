@@ -3,7 +3,7 @@
 <h1>Results</h1>
 <% @results.each do |result| %>
   <strong><%= link_to result.title, article_path(result) %></strong>
-    <p> Likes: <%= result.likes.count %> Dislike: <%= result.dislikes.count %> </p>
+    <p>[<%= link_to Category.find(result.category_id).name, category_path(result.category_id) %>] Likes: <%= result.likes.count %> Dislike: <%= result.dislikes.count %> </p>
     Posted on <%= result.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%B %d %H:%M") %> by <%= link_to result.author, user_path(result.author) %>
     <br>
     <% if current_user && (current_user.username == result.author || current_user.is_admin) %>
