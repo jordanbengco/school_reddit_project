@@ -1,6 +1,11 @@
-<%= render 'main/header' %>
-
 <h1> <%= @conversation.subject %> </h1>
+
+<!-- Flash message showing any errors -->
+<% flash.each do |name, msg| %>
+  <div class='alert alert-<%= name %>'>
+    <%= msg %>
+  </div>
+<% end %>
 
 <!-- Conersations have reciepts, which contain the messages -->
 <% @conversation.receipts_for(current_user).each do |receipt| %>
@@ -17,7 +22,6 @@
   </div>
   <%= submit_tag %>
 <% end %>
-
 <div>
   <%= link_to "Back", conversations_path%>
 </div>

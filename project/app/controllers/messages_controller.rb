@@ -6,7 +6,13 @@ class MessagesController < ApplicationController
     # Replying to a conversation
     def create
         receipt = current_user.reply_to_conversation(@conversation, params[:body])
-        redirect_to conversation_path(receipt.conversation)
+        
+        # If body is not blank, send the message
+        if params[:body].strip != "" 
+            redirect_to conversation_path(receipt.conversation)
+        else
+            redirect_to conversation_path(@conversation), danger: "Body cannot be blank"      
+        end
     end
 
     private

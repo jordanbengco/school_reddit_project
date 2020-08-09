@@ -20,7 +20,13 @@ class ConversationsController < ApplicationController
     def create    
         recipient = User.find(params[:user_id])
         receipt = current_user.send_message(recipient, params[:body], params[:subject])
-        redirect_to conversation_path(receipt.conversation)
+        
+        # If body and subject are not blank, create the convo
+        if params[:body].strip != "" && params[:subject].strip != ""
+            redirect_to conversation_path(receipt.conversation)
+        else
+            redirect_to new_conversation_path, danger: "Body and Subject cannot be blank"
+        end
     end   
     
     
