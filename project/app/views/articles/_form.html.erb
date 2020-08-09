@@ -24,11 +24,13 @@
     <p>
       <%= form.label :text %><br>
       <%= form.text_area :text %>
+    </p>
+    <p>
+      <%= select_tag(:category_id, options_for_select(@categories), :selected => "General") %>
+    </p>
       <%= form.hidden_field :author, value: current_user.username, readonly: true if @article.new_record? %>
       <%= form.hidden_field :time, value: Time.now, readonly: true if @article.persisted? %>
       <%= form.hidden_field :edit, value: current_user.username, readonly: true if @article.persisted? %>
-    </p>
-
     <p>
       <%= form.submit %>
     </p>

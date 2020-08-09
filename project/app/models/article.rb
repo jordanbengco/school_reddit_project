@@ -4,9 +4,10 @@ class Article < ApplicationRecord
     has_many :dislikes, dependent: :destroy
     validates :title, presence: true, length: { minimum: 5 }
     validates :text, length: { maximum: 5000 }
+    validates :category, presence: true
     after_validation :set_slug, uniqueness: true, only: [:create, :update]
 
-    default_scope { order('created_at DESC')}
+    belongs_to :category
 
     def to_param
     	"#{id}-#{slug}"
