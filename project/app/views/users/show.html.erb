@@ -24,7 +24,7 @@
   <%= @user.score %>
 </p>
 
-<% if current_user.is_admin %>
+<% if current_user && current_user.is_admin %>
   <%= link_to 'Ban User', user_path(@user), method: :delete, data: { confirm: 'You are about to ban this user. This action cannot be undone. Are you sure?' } %> |
 <% end %>
 
@@ -38,15 +38,13 @@
     <% Article.all.each do |article| %>
     	<% if article.author == @user.username %>
 	        <strong><%= link_to article.title, article_path(article) %></strong>
-	      <br>
-	        Posted on <%= article.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%B %d %H:%M") %>
-	      <br>
+	      <p>Posted on <%= article.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%B %d %H:%M") %></p>
 	      <% if current_user && (current_user.username == article.author || current_user.is_admin) %>
-	          <%= link_to 'Edit', edit_article_path(article) %> / 
-	          <%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: 'You are about to delete this post. Are you sure?' } %><br>
+	          <p><%= link_to 'Edit', edit_article_path(article) %> / 
+	          <%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: 'You are about to delete this post. Are you sure?' } %></p>
 	      <% end %>
+        <br>
 	    <%end %>
-      <br>
     <% end %>
   </table>
 
