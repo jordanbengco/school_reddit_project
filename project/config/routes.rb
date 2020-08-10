@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :categories
   root 'main#index'
   resources :users, param: :slug do
     resources:avatar

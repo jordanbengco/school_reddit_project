@@ -1,5 +1,6 @@
 <%= render 'main/header' %>
 
+<% if current_user && current_user.is_admin %>
 <p id="notice"><%= notice %></p>
 
 <h1>User List (ADMIN PAGE)</h1>
@@ -34,5 +35,8 @@
 
 <%= link_to 'New User', new_user_path %>
 <br>
+<% else %>
+You do not have permission to view this page.<br><br>
+<% end %>
 <%= link_to 'Back', root_path %>
 

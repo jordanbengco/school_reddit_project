@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 2020_08_09_202641) do
     t.text "edit"
     t.string "slug"
     t.text "render_text"
+    t.string "category_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -132,6 +139,7 @@ ActiveRecord::Schema.define(version: 2020_08_09_202641) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "score"
     t.string "slug"
+    t.boolean "notifications"
     t.string "avatar"
     t.index ["username"], name: "index_users_on_username", unique: true
   end

@@ -28,9 +28,11 @@ class UsersController < ApplicationController
 	  @user.is_admin = false
 	  @user.score = 0
 
-
     respond_to do |format|
       if verify_recaptcha(model: @user) && @user.save
+        if @user.notifications == true
+          NewUserMailer.notify_user(@user).deliver_now
+        end
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -44,7 +46,10 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
-      if @user.update_attributes(user_params)
+      if @user.update(user_params)
+        if @user.notifications == true
+          NewUserMailer.notify_user_updated(@user).deliver_now
+        end
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -73,6 +78,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:username, :email, :password, :password_confirmation, :is_admin, :avatar)
+      params.require(:user).permit(:username, :email, :password, :password_confirmation, :is_admin, :notifications, :avatar)
     end
 end

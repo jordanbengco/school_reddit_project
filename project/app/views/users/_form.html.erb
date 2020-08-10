@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+ <% if (current_user && current_user == user) || (current_user && current_user.is_admin)%>
   <div class="field">
     <%= form.label :username %>
     <%= form.text_field :username %>
@@ -30,12 +31,25 @@
     <%= form.label :password_confirmation %>
     <%= form.password_field :password_confirmation %>
   </div>
+
   <div class ="field">
     <%= form.label :upload_avatar %>
     <%= form.file_field :avatar %>
   </div>
+  
+  <div class="field">
+    <%= form.label :notifications, 'Enable E-mail Notifications:' %>
+    <%= form.label :notifications, "Yes", :value => true  %>
+    <%= form.radio_button :notifications, true %>
+    <%= form.label :notifications, "No", :value => false %>
+    <%= form.radio_button :notifications, false, :checked => true %>
+  </div>
+
   <%= recaptcha_tags %>
   <div class="actions">
     <%= form.submit %>
   </div>
+ <% else %>
+ You do not have permission to view this page.<br><br>
+ <% end %>
 <% end %>

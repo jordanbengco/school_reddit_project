@@ -1,14 +1,15 @@
 <%= render 'main/header' %>
+<% if @article %>
 <h1>
   <strong><%= @article.title %></strong>
 </h1>
-
+<p><%= link_to Category.find(@article.category_id).name, category_path(@article.category_id) %></p>
 <p>
   Posted on <strong><%= @article.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%B %d %H:%M") %></strong>
   by <strong><%= link_to @article.author, user_path(@article.author) %></strong>
   <% if @article.created_at != @article.updated_at %>
   	<br>Updated on <strong><%= @article.updated_at.in_time_zone('Pacific Time (US & Canada)').strftime("%B %d %H:%M") %></strong>
-  	by <strong><%= link_to @article.edit, user_path(@article.edit) %></strong> 
+	by <strong><%= link_to @article.author, user_path(@article.author) %></strong>
   <% end %><br>
 	<% if current_user && (current_user.username == @article.author || current_user.is_admin) %>
         <%= link_to 'Edit', edit_article_path(@article) %> /
@@ -28,5 +29,8 @@
 <%= render 'comments/form' %>
 <%= render @article.comments.select(&:persisted?) %>
 
+<% else %>
+<p>This article does not exist</p>
+<% end %>
 
 <%= link_to 'Back', root_path %>
