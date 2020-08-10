@@ -25,8 +25,9 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-	@user.is_admin = false
-	@user.score = 0
+	  @user.is_admin = false
+	  @user.score = 0
+
 
     respond_to do |format|
       if verify_recaptcha(model: @user) && @user.save
@@ -43,7 +44,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
-      if @user.update(user_params)
+      if @user.update_attributes(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -72,6 +73,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:username, :email, :password, :password_confirmation, :is_admin)
+      params.require(:user).permit(:username, :email, :password, :password_confirmation, :is_admin, :avatar)
     end
 end

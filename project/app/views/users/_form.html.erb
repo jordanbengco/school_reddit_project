@@ -30,6 +30,10 @@
     <%= form.label :password_confirmation %>
     <%= form.password_field :password_confirmation %>
   </div>
+  <div class ="field">
+    <%= form.label :upload_avatar %>
+    <%= form.file_field :avatar %>
+  </div>
   <%= recaptcha_tags %>
   <div class="actions">
     <%= form.submit %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_08_070607) do
+ActiveRecord::Schema.define(version: 2020_08_09_202641) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 2020_08_08_070607) do
     t.text "author"
     t.datetime "time"
     t.text "edit"
-    t.text "render_text"
     t.string "slug"
+    t.text "render_text"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -132,6 +132,7 @@ ActiveRecord::Schema.define(version: 2020_08_08_070607) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "score"
     t.string "slug"
+    t.string "avatar"
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
