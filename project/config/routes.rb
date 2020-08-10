@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   resources :categories
+  resources :blacklists
+
+
   root 'main#index'
   resources :users, param: :slug do
     resources:avatar

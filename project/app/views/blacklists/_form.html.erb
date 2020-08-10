@@ -1,0 +1,11 @@
+<%= form_with model: @blacklist, local: true do |form| %>
+    <p>
+      <%= form.label :blocked %><br>
+      <%= form.text_field :blocked %>
+    </p>
+   
+    <p>
+      <%= form.submit %>
+    </p>
+   
+<% end %>

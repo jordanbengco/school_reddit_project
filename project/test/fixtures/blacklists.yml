@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  blocked: MyString
+  user: one
+
+two:
+  blocked: MyString
+  user: two
