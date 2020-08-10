@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
   resources :categories
-  resources :blacklists
+  #resources :blacklists
 
 
   root 'main#index'
   resources :users, param: :slug do
     resources :avatar
-    # resources :blacklists
+    resources :blacklists
   end
 
   resources :sessions, only: [:new, :create, :destroy]
