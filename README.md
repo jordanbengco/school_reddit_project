@@ -25,7 +25,7 @@
 * Use the emoticon tag associated with the purchased emoticon. For example:
     * [helloWorld] or [starEmoji].
 * Images are added by simply using the html image tag. For example:
-    * <img src="https://live.staticflickr.com/79/234433736_1b5e1f02cd_z.jpg" width="20%" height="20%"/>
+    * \<img src="https://live.staticflickr.com/79/234433736_1b5e1f02cd_z.jpg" width="20%" height="20%"/>
 * Youtube videos are added by adding the following to your post [youtube: videoID]. For example:
     * [youtube: dQw4w9WgXcQ].
 * To embed audio and video files use [audio: linkToAudioFile] and [video: linkToVideoFile]. For example:
