@@ -6,7 +6,7 @@
           <tr>
             <td>
               <% if current_user %>
-                Logged in as <strong><%= link_to current_user.username, user_path(current_user) %></strong>
+                <p>Logged in as <strong><%= link_to current_user.username, user_path(current_user) %></strong> (<%= link_to "Edit profile", edit_user_path(current_user) %>)
               <% else %>
                 Not logged in.
               <% end %>
@@ -17,16 +17,16 @@
             </td>
           </tr>
         </table>
-        <% if current_user && current_user.is_admin %>
-          <%= link_to 'Admin Page', users_path %>
-        <% end %>
       </div>
       <ul class="nav navbar-nav navbar-right">
         <table>
           <% if current_user %>
           <tr>
             <td>
-              <p><%= link_to 'Inbox', conversations_path %> / <%= link_to "Edit profile", edit_user_path(current_user) %></p>
+              <p><%= link_to 'Inbox', conversations_path %>
+              <% if current_user && current_user.is_admin %>
+               / <%= link_to 'Admin Page', users_path %></p>
+              <% end %>
             </td>
           </tr>
           <tr>
