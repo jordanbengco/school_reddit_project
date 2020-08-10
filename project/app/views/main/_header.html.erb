@@ -14,7 +14,11 @@
       </div>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-          <%= link_to 'Blacklist', blacklist_path %>
+          <% if current_user.Blacklist = nil %>
+              <%= link_to 'Blacklist', edit_blacklist_path(current_user) %>
+          <% else %>
+            <%= link_to 'Blacklist', show_blacklist_path(current_user) %>
+          <% end %>
           <%= link_to 'Inbox', conversations_path %>
           <%= link_to "Edit profile", edit_user_path(current_user) %>
           <%= link_to "Log Out", logout_path %>

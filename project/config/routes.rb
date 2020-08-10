@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
   root 'main#index'
   resources :users, param: :slug do
-    resources:avatar
+    resources :avatar
+    # resources :blacklists
   end
 
   resources :sessions, only: [:new, :create, :destroy]

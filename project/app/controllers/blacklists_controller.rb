@@ -1,4 +1,5 @@
 class BlacklistsController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
     def index
         @blacklists = Blacklist.all
@@ -17,7 +18,7 @@ class BlacklistsController < ApplicationController
       end
      
       def create
-        @blacklist = Blacklist.new(article_params)
+        @blacklist = Blacklist.new(blacklist_params)
      
         if @blacklist.save
           redirect_to @blacklist
@@ -45,7 +46,11 @@ class BlacklistsController < ApplicationController
      
       private
         def blacklist_params
-          params.require(:article).permit(:blocked)
+          params.require(:blacklist).permit(:blocked)
+        end
+
+        def set_user
+          @user = User.find_by_slug(params[:slug])
         end
   
     
