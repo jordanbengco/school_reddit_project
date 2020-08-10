@@ -2,10 +2,12 @@ Rails.application.routes.draw do
 
   resources :categories
   root 'main#index'
-  resources :users, param: :slug
-  
+  resources :users, param: :slug do
+    resources:avatar
+  end
+
   resources :sessions, only: [:new, :create, :destroy]
-  
+
   resources :articles do
     resources :comments
     resources :likes
@@ -18,7 +20,7 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
-  
+
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'

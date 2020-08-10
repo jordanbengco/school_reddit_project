@@ -32,6 +32,11 @@
     <%= form.password_field :password_confirmation %>
   </div>
 
+  <div class ="field">
+    <%= form.label :upload_avatar %>
+    <%= form.file_field :avatar %>
+  </div>
+  
   <div class="field">
     <%= form.label :notifications, 'Enable E-mail Notifications:' %>
     <%= form.label :notifications, "Yes", :value => true  %>

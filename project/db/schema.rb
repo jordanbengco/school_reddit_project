@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_09_060642) do
+ActiveRecord::Schema.define(version: 2020_08_09_202641) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -140,6 +140,7 @@ ActiveRecord::Schema.define(version: 2020_08_09_060642) do
     t.integer "score"
     t.string "slug"
     t.boolean "notifications"
+    t.string "avatar"
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
