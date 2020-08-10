@@ -68,6 +68,11 @@ class ArticlesController < ApplicationController
       @results = Article.joins(:likes).select('articles.*, COUNT(likes.id) as lc').group('article_id').order('lc DESC')
     elsif params[:search] == '!new'
       @results = Article.order('created_at DESC').all
+    elsif params[:search][0,5] == "!like"
+      number = params[:search].scan(/\d/).first.to_i
+      @results = Article.joins(:likes).select('articles.*, COUNT(likes.id) as lc').group('article_id').having("lc >= ?", number).order('lc DESC')
+    elsif params[:search] == '!video'
+      @results = Article.all.where("lower(text) LIKE ?", "%[youtube:%")
     else
       @results = Article.all.where("lower(title) LIKE :search", search: "%#{params[:search].downcase}%")
     end
