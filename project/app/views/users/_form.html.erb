@@ -12,6 +12,7 @@
   <% end %>
 
  <% if (current_user && current_user == user) || (current_user && current_user.is_admin)%>
+
   <div class="field">
     <%= form.label :username %>
     <%= form.text_field :username %>
@@ -20,6 +21,11 @@
   <div class="field">
     <%= form.label :email %>
     <%= form.email_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label "About Me" %>
+    <%= form.text_area :about, size: "30x5" %>
   </div>
 
   <div class="field">

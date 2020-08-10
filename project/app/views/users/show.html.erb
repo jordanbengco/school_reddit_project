@@ -6,19 +6,19 @@
 
 <p id="notice"><%= notice %></p>
 
+
+
 <p>
-  <strong>Username:</strong>
-  <%= @user.username %>
+  <h1><% if @user.is_admin %> [Admin] <% end %>
+  <strong><%= @user.username %></strong></h1>
 </p>
 
 <p>
-  <strong>Email:</strong>
+  <%= image_tag(@user.avatar.url, alt: 'Image') if @user.avatar? %>
+</p>
+
+<p>
   <%= @user.email %>
-</p>
-
-<p>
-  <strong>Is admin:</strong>
-  <%= @user.is_admin %>
 </p>
 
 <p>
@@ -27,7 +27,12 @@
 </p>
 
 <p>
-  <%= image_tag(@user.avatar.url, alt: 'Image') if @user.avatar? %>
+  <strong>About Me:</strong><br>
+  <% if @user.about.present? %>
+    <%= @user.about %>
+  <% else %>
+    This user has not created an about me section.
+  <% end %>
 </p>
 
 <% if current_user && current_user.is_admin %>
