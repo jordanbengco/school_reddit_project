@@ -1,21 +1,31 @@
-Access app at http://localhost:8080
+# Access app at http://localhost:8080
+
+
+## Premade accounts
 
 admin account have usernames admin and admin2 where username == password (username: admin, password: admin)
+
 user accounts with usernames joe,bob,jordan,ali,rahul,jordon,amy,tim,courtney,nicole made where username == pasword
 
-Search options:
+## Search options:
+
 Search a post title by inputting a string into the text bar.
+
 !top will search more posts with the most likes all time
+
 !new will search more the most recently created posts
+
 !like # will only show posts with at least min(#,1) likes
+
 !video will only show posts with embedded video.
 
-How to use the Cosmetics shop;
+
+## How to use the Cosmetics shop;
 Everytime someone likes a post you made, you get 1 point added to your score.
 You can use this score to purchase items in the cosmetics stroe.
 
 
-How to have embedded media in your posts:
+## How to have embedded media in your posts:
 To have custom emoticons in your post, login as an admin user or purchase the emoticons you want from the cosmetics store.
 Then use the emoticon tag associated with the purchased emoticon. 
 For example [helloWorld] or [starEmoji].
@@ -32,7 +42,7 @@ For example [audio: https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp
 
 
 
-Tutorials/resources used:
+## Tutorials/resources used:
 https://guides.rubyonrails.org/getting_started.html#creating-the-blog-application
 https://medium.com/@wintermeyer/authentication-from-scratch-with-rails-5-2-92d8676f6836
 
