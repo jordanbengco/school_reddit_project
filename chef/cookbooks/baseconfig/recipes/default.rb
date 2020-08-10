@@ -92,6 +92,10 @@ execute 'install_gems' do
   command 'bundle install'
 end
 
+execute 'install_graphics' do
+  command 'sudo apt-get install -y graphicsmagick'
+end
+
 execute 'yarn_add_webpacker' do
   user 'vagrant'
   cwd '/home/vagrant/project/project/'
