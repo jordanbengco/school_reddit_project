@@ -1,7 +1,33 @@
-
 Access app at http://localhost:8080
 
-default admin account has the username and password of (admin,admin)
+admin account have usernames admin and admin2 where username == password (username: admin, password: admin)
+user accounts with usernames joe,bob,jordan,ali,rahul,jordon,amy,tim,courtney,nicole made where username == pasword
+
+Search options:
+Search a post title by inputting a string into the text bar.
+!top will search more posts with the most likes all time
+!new will search more the most recently created posts
+!like # will only show posts with at least min(#,1) likes
+!video will only show posts with embedded video.
+
+How to use the Cosmetics shop;
+Everytime someone likes a post you made, you get 1 point added to your score.
+You can use this score to purchase items in the cosmetics stroe.
+
+
+How to have embedded media in your posts:
+To have custom emoticons in your post, login as an admin user or purchase the emoticons you want from the cosmetics store.
+Then use the emoticon tag associated with the purchased emoticon. 
+For example [helloWorld] or [starEmoji].
+
+Images are added by simply using the html image tag.
+For example <img src="https://live.staticflickr.com/79/234433736_1b5e1f02cd_z.jpg" width="20%" height="20%"/>
+
+Youtube videos are added by adding the following to your post [youtube: videoID]. 
+For example [youtube: dQw4w9WgXcQ].
+
+To embed audio and video files use [audio: linkToAudioFile] and [video: linkToVideoFile]. 
+For example [audio: https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3] and [video: https://www.nps.gov/audiovideo/grca/FE1422E6-155D-451F-67271BA4F8D9DD79/grca-NRsunrise021080_480x270.mp4]
 
 
 
