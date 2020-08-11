@@ -1,19 +1,25 @@
 <%= render 'main/header' %>
 
-<h1>Inbox</h1>
+<header class="container">
+    <div class="container-fluid">
+	
+	<h1>Inbox</h1>
 
-<!-- Loop through all the conversations -->
-<% @conversations.each do |conversation| %>
-  <div>
-    <%= link_to conversation.subject, conversation_path(conversation) %>
-  </div>
-<% end %>
+	<!-- Loop through all the conversations -->
+	<% @conversations.each do |conversation| %>
+	  <div>
+		<%= link_to conversation.subject, conversation_path(conversation) %>
+	  </div>
+	<% end %>
 
-<!-- Create a new conversation -->
-<div>
-  <%= link_to "New Conversation", new_conversation_path%>
-</div>
+	<!-- Create a new conversation -->
+	<div>
+	  <%= link_to "New Conversation", new_conversation_path%>
+	</div>
 
-<div>
-  <%= link_to "Back", root_path%>
-</div>
+	<div>
+	  <%= link_to "Back", root_path%>
+	</div>
+
+    </div>
+</header>	

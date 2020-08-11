@@ -1,32 +1,40 @@
-<h1>New Conversation</h1>
+<%= render 'main/header' %>
 
-<!-- Flash message showing any errors -->
-<% flash.each do |name, msg| %>
-  <div class='alert alert-<%= name %>'>
-    <%= msg %>
-  </div>
-<% end %>
+<header class="container">
+    <div class="container-fluid">
+	
+	<h1>New Conversation</h1>
 
-<%= form_tag conversations_path, method: :post do %>
-  <!-- User we want to talk to -->
-  <div>
-    <!-- Displays the usernames, but pass the id to functions -->
-    <%= select_tag :user_id, options_from_collection_for_select(@recipients, :id, :username) %>
-    <!-- TODO: Have textbox instead of drop down -->
-  </div>
+	<!-- Flash message showing any errors -->
+	<% flash.each do |name, msg| %>
+	  <div class='alert alert-<%= name %>'>
+		<%= msg %>
+	  </div>
+	<% end %>
 
-  <!-- Message subject -->
-  <div>
-    <%= text_field_tag :subject, nil, placeholder: "Subject"%>
-  </div>
+	<%= form_tag conversations_path, method: :post do %>
+	  <!-- User we want to talk to -->
+	  <div>
+		<!-- Displays the usernames, but pass the id to functions -->
+		<%= select_tag :user_id, options_from_collection_for_select(@recipients, :id, :username) %>
+		<!-- TODO: Have textbox instead of drop down -->
+	  </div>
 
-  <!-- Message body -->
-  <div>
-    <%= text_area_tag :body, nil, placeholder: "Comment"%>
-  </div>
-  <%= submit_tag %>
-<% end %>
+	  <!-- Message subject -->
+	  <div>
+		<%= text_field_tag :subject, nil, placeholder: "Subject"%>
+	  </div>
 
-<div>
-  <%= link_to "Back", conversations_path%>
-</div>
+	  <!-- Message body -->
+	  <div>
+		<%= text_area_tag :body, nil, placeholder: "Comment"%>
+	  </div>
+	  <%= submit_tag %>
+	<% end %>
+
+	<div>
+	  <%= link_to "Back", conversations_path%>
+	</div>
+
+    </div>
+</header>	

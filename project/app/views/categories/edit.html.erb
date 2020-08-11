@@ -1,6 +1,14 @@
-<h1>Editing Category</h1>
+<%= render 'main/header' %>
 
-<%= render 'form', category: @category %>
+<header class="container">
+    <div class="container-fluid">
 
-<%= link_to 'Show', @category %> |
-<%= link_to 'Back', categories_path %>
+	<h1>Editing Category</h1>
+
+	<%= render 'form', category: @category %>
+
+	<%= link_to 'Show', @category %> |
+	<%= link_to 'Back', categories_path %>
+
+    </div>
+</header>

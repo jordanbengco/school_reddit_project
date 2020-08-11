@@ -1,36 +1,43 @@
 <%= render 'main/header' %>
-<% if @article %>
-<h1>
-  <strong><%= @article.title %></strong>
-</h1>
-<p><%= link_to Category.find(@article.category_id).name, category_path(@article.category_id) %></p>
-<p>
-  Posted on <strong><%= @article.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%B %d %H:%M") %></strong>
-  by <strong><%= link_to @article.author, user_path(@article.author) %></strong>
-  <% if @article.created_at != @article.updated_at %>
-  	<br>Updated on <strong><%= @article.updated_at.in_time_zone('Pacific Time (US & Canada)').strftime("%B %d %H:%M") %></strong>
-	by <strong><%= link_to @article.author, user_path(@article.author) %></strong>
-  <% end %><br>
-	<% if current_user && (current_user.username == @article.author || current_user.is_admin) %>
-        <%= link_to 'Edit', edit_article_path(@article) %> /
-        <%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'You are about to delete this post. Are you sure?' } %><br>
-    <% end %>
-</p>
 
-<p>
-  <%= @article.render_text.html_safe %><br>
-</p>
+<header class="container">
+    <div class="container-fluid">
 
-<%= button_to 'Like', article_likes_path(@article), method: :post,  remote: true %> <%= @article.likes.count %>
-<%= button_to 'Dislike', article_dislikes_path(@article), method: :post, remote: true %> <%= @article.dislikes.count %>
+	<% if @article %>
+	<h1>
+	  <strong><%= @article.title %></strong>
+	</h1>
+	<p><%= link_to Category.find(@article.category_id).name, category_path(@article.category_id) %></p>
+	<p>
+	  Posted on <strong><%= @article.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%B %d %H:%M") %></strong>
+	  by <strong><%= link_to @article.author, user_path(@article.author) %></strong>
+	  <% if @article.created_at != @article.updated_at %>
+		<br>Updated on <strong><%= @article.updated_at.in_time_zone('Pacific Time (US & Canada)').strftime("%B %d %H:%M") %></strong>
+		by <strong><%= link_to @article.author, user_path(@article.author) %></strong>
+	  <% end %><br>
+		<% if current_user && (current_user.username == @article.author || current_user.is_admin) %>
+			<%= link_to 'Edit', edit_article_path(@article) %> /
+			<%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'You are about to delete this post. Are you sure?' } %><br>
+		<% end %>
+	</p>
+
+	<p>
+	  <%= @article.render_text.html_safe %><br>
+	</p>
+
+	<%= button_to 'Like', article_likes_path(@article), method: :post,  remote: true %> <%= @article.likes.count %>
+	<%= button_to 'Dislike', article_dislikes_path(@article), method: :post, remote: true %> <%= @article.dislikes.count %>
 
 
-<h2>Comments</h2>
-<%= render 'comments/form' %>
-<%= render @article.comments.select(&:persisted?) %>
+	<h2>Comments</h2>
+	<%= render 'comments/form' %>
+	<%= render @article.comments.select(&:persisted?) %>
 
-<% else %>
-<p>This article does not exist</p>
-<% end %>
+	<% else %>
+	<p>This article does not exist</p>
+	<% end %>
 
-<%= link_to 'Back', root_path %>
+	<%= link_to 'Back', root_path %>
+
+    </div>
+</header>	

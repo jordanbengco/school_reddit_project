@@ -1,2 +1,33 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+#posts {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 15px;
+	padding-left: 15px;
+}
+
+
+#search {
+	margin-left: auto;
+	margin-right: auto;
+	padding: 15px;
+	width: 100%;
+}
+
+#storeItemTable{
+	width: auto;
+
+}
+
+#storeItemTable td{
+	padding-left: 5%
+}
+
+#storeItemTable th{
+	padding-left: 5%
+
+}

@@ -4,6 +4,7 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :username, presence: true, uniqueness: true
   after_validation :set_slug, uniqueness: true, only: [:create, :update]
+  validates :about, length: { maximum: 3000 }
 
   has_many :store_items, dependent: :destroy
   has_many :likes, dependent: :destroy

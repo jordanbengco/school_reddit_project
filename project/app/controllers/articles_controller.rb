@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
+  before_action :set_categories, only: [:new, :create, :edit]
   helper_method :handle_custom_tags
+
   def handle_custom_tags(text,author)
 	authorUser = User.find_by_username(author)
 	authorUserExists = (authorUser != nil)
@@ -62,10 +64,15 @@ class ArticlesController < ApplicationController
   def index
     if params[:search].blank?
       redirect_to(root_path) and return
-    elsif params[:search] == 'top'
+    elsif params[:search] == '!top'
       @results = Article.joins(:likes).select('articles.*, COUNT(likes.id) as lc').group('article_id').order('lc DESC')
-    elsif params[:search] == 'new'
+    elsif params[:search] == '!new'
       @results = Article.order('created_at DESC').all
+    elsif params[:search][0,5] == "!like"
+      number = params[:search].scan(/\d/).first.to_i
+      @results = Article.joins(:likes).select('articles.*, COUNT(likes.id) as lc').group('article_id').having("lc >= ?", number).order('lc DESC')
+    elsif params[:search] == '!video'
+      @results = Article.all.where("lower(text) LIKE ? OR lower(text) LIKE ?", "%[youtube:%", "%[video:%")
     else
       @results = Article.all.where("lower(title) LIKE :search", search: "%#{params[:search].downcase}%")
     end
@@ -139,6 +146,10 @@ class ArticlesController < ApplicationController
   private
     def set_article
       @article = Article.find_by_id(params[:id])
+    end
+
+    def set_categories
+      @categories = Category.all.map { |c| [c.name, c.id] }
     end
 
     def article_params

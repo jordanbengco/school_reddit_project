@@ -1,9 +1,15 @@
 <%= render 'main/header' %>
 
-<% if current_user && current_user.is_admin %>
-  <h1>New Category</h1>
-  <%= render 'form', category: @category %>
-<% else %>
-You do not have permission to view this page.<br>
-<% end %>
-<%= link_to 'Back', categories_path %>
+<header class="container">
+    <div class="container-fluid">
+
+	<% if current_user && current_user.is_admin %>
+	  <h1>New Category</h1>
+	  <%= render 'form', category: @category %>
+	<% else %>
+	You do not have permission to view this page.<br>
+	<% end %>
+	<%= link_to 'Back', categories_path %>
+
+    </div>
+</header>	

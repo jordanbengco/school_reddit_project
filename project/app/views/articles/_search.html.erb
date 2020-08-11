@@ -1,5 +1,26 @@
-<%= form_tag(articles_path, method: :get) do %>
-  <%= text_field_tag(:search, params[:search]) %>
-  <%= submit_tag 'Search', name: nil %>
-  <br><%= link_to 'or filter by category', categories_path %>
-<% end %>
+<%= stylesheet_link_tag 'application' %>
+
+
+<header class="container">
+    <div class="container-fluid">
+
+	<%= form_tag(articles_path, method: :get) do %>
+	<table id="search">
+	  <tr><td>
+	  <%= text_field_tag(:search, params[:search]) %>
+	  </tr><tr><td>
+	  <%= submit_tag 'Search', name: nil %>
+	  <%= link_to 'or filter by category', categories_path %>
+	 </td></tr><tr><td>
+	  <p>Advanced search options:</p>
+	  <ul>
+		<li> !top - to see the top posts of all time
+		<li> !new - to see the newest posts
+		<li> !like # - to only see posts with at least # likes
+		<li> !video - to only see posts which contain videos
+	  </ul></td></tr>
+	</table>
+	<% end %>
+	
+    </div>
+</header>
