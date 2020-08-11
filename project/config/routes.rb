@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   resources :categories
-  #resources :blacklists
 
 
   root 'main#index'

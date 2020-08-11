@@ -1,5 +1,29 @@
-<h1>New Blacklist</h1>
- 
-<%= render 'form' %>
- 
-<%= link_to 'Back', blacklists_path %>
+<h2> Blacklist a user </h2>
+
+<%= form_with scope: :blacklist, url: user_blacklists_path, local: true do |form| %>
+  <% if @blacklist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@blacklist.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% @blacklist.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :blocked %>
+    <%= form.text_field :blocked %>
+  </div>
+  
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+
+
+
+
