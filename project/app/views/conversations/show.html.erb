@@ -1,27 +1,35 @@
-<h1> <%= @conversation.subject %> </h1>
+<%= render 'main/header' %>
 
-<!-- Flash message showing any errors -->
-<% flash.each do |name, msg| %>
-  <div class='alert alert-<%= name %>'>
-    <%= msg %>
-  </div>
-<% end %>
+<header class="container">
+    <div class="container-fluid">
 
-<!-- Conersations have reciepts, which contain the messages -->
-<% @conversation.receipts_for(current_user).each do |receipt| %>
-  <div>
-    <div> <%= receipt.message.sender.username %> commented: </div>
-    <%= receipt.message.body %>
-  </div>
-<% end %>
+	<h1> <%= @conversation.subject %> </h1>
 
-<!-- Form for creating messages -->
-<%= form_tag conversation_messages_path(@conversation), method: :post do %>
-  <div>
-    <%= text_area_tag :body%>
-  </div>
-  <%= submit_tag %>
-<% end %>
-<div>
-  <%= link_to "Back", conversations_path%>
-</div>
+	<!-- Flash message showing any errors -->
+	<% flash.each do |name, msg| %>
+	  <div class='alert alert-<%= name %>'>
+		<%= msg %>
+	  </div>
+	<% end %>
+
+	<!-- Conersations have reciepts, which contain the messages -->
+	<% @conversation.receipts_for(current_user).each do |receipt| %>
+	  <div>
+		<div> <%= receipt.message.sender.username %> commented: </div>
+		<%= receipt.message.body %>
+	  </div>
+	<% end %>
+
+	<!-- Form for creating messages -->
+	<%= form_tag conversation_messages_path(@conversation), method: :post do %>
+	  <div>
+		<%= text_area_tag :body%>
+	  </div>
+	  <%= submit_tag %>
+	<% end %>
+	<div>
+	  <%= link_to "Back", conversations_path%>
+	</div>
+
+    </div>
+</header>	

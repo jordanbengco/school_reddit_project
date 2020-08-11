@@ -1,49 +1,33 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 #posts {
 	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 15px;
+	padding-left: 15px;
 }
+
 
 #search {
 	margin-left: auto;
 	margin-right: auto;
-	width: 80%;
+	padding: 15px;
+	width: 100%;
 }
 
-#corners {
-	margin-left: 2%;
-	margin-right: auto;
-	width: 80%;
-	border-top-right-radius: 25px;
-	border-bottom-right-radius: 25px;
-	border-style: solid;
-	border-left: 6px solid;
-	padding: 10px;
-	margin: 10px;
-	background-color: #e6e6e6;
+#storeItemTable{
+	width: auto;
+
 }
 
-body {
-	background-color: #e6ffff;
+#storeItemTable td{
+	padding-left: 5%
 }
 
-#headers_post {
-	border-style: solid;
-}
+#storeItemTable th{
+	padding-left: 5%
 
-#posts th {
-	padding-left: 2%;
-	background-color: #000000;
-	color: #e6ffff;
-}
-
-#new {
-	border-style: solid;
-	text-align: center;
-	padding: 10px;
-	width: 20%;
-	margin-left: auto;
-	border-radius: 10px;
-	background-color: #e6e6e6;
 }

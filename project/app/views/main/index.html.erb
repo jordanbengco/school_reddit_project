@@ -13,7 +13,8 @@
   <%= render 'articles/search' %>
   <!----------------------------- Search Bar ------------------------------>
 
-
+<header class="container">
+    <div class="container-fluid">
   <!----------------------------- Liked posts ---------------------------------->
   <p id=”notice”><%= notice %></p>
   <% if current_user %>
@@ -64,5 +65,8 @@
     <td></tr>
   </table>
 <!----------------------------- Newest posts ---------------------------------->
+    </div>
+</header>
+
 
 </html>
