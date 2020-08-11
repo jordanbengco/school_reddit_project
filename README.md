@@ -1,4 +1,4 @@
-# Access app at http://localhost:8080
+# vangrant up then access app at http://localhost:8080
 
 
 ## Premade accounts
