@@ -1,17 +1,23 @@
 <%= render 'main/header' %>
 
-<h1>Results</h1>
-<% @results.each do |result| %>
- <div id="corners">
-  <strong><%= link_to result.title, article_path(result) %></strong>
-    <p>[<%= link_to Category.find(result.category_id).name, category_path(result.category_id) %>] Likes: <%= result.likes.count %> Dislike: <%= result.dislikes.count %> </p>
-    Posted on <%= result.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%B %d %H:%M") %> by <%= link_to result.author, user_path(result.author) %>
-    <br>
-    <% if current_user && (current_user.username == result.author || current_user.is_admin) %>
-      <%= link_to 'Edit', edit_article_path(result) %> /
-      <%= link_to 'Delete', article_path(result), method: :delete, data: { confirm: 'You are about to delete this post. Are you sure?' } %><br>
-    <% end %><br>
- </div>
-<% end %>
+<header class="container">
+    <div class="container-fluid">
 
-<%= link_to 'Back', root_path %>
+	<h1>Results</h1>
+	<% @results.each do |result| %>
+	 <div id="corners">
+	  <strong><%= link_to result.title, article_path(result) %></strong>
+		<p>[<%= link_to Category.find(result.category_id).name, category_path(result.category_id) %>] Likes: <%= result.likes.count %> Dislike: <%= result.dislikes.count %> </p>
+		Posted on <%= result.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%B %d %H:%M") %> by <%= link_to result.author, user_path(result.author) %>
+		<br>
+		<% if current_user && (current_user.username == result.author || current_user.is_admin) %>
+		  <%= link_to 'Edit', edit_article_path(result) %> /
+		  <%= link_to 'Delete', article_path(result), method: :delete, data: { confirm: 'You are about to delete this post. Are you sure?' } %><br>
+		<% end %><br>
+	 </div>
+	<% end %>
+
+	<%= link_to 'Back', root_path %>
+
+    </div>
+</header>	
