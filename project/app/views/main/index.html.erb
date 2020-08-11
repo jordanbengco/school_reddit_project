@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag 'application' %>
+
 <html lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,18 +17,18 @@
   <!----------------------------- Liked posts ---------------------------------->
   <p id=”notice”><%= notice %></p>
   <% if current_user %>
-    <h3><%= link_to 'Create a new post', new_article_path %></h3>
+    <h3 id="new"><%= link_to 'Create a new post', new_article_path %></h3>
   <% else %>
     <h3><%= link_to 'Login to create a new post', login_path %></h3>
   <% end %>
-  <table>
+  <table id="posts">
     <tr>
      <th><h1>Most Liked Posts</h1></th>
      <th><h1>New Posts</h1></th>
    </tr><tr>
    <td>
     <% @articles.joins(:likes).select('articles.*, COUNT(likes.id) as lc').group('article_id').order('lc DESC').limit(5).each do |article| %>
-        <strong><%= link_to article.title, article_path(article) %></strong>
+        <div id="corners"><strong><%= link_to article.title, article_path(article) %></strong>
       <p>[<%= link_to Category.find(article.category_id).name, category_path(article.category_id) %>] Likes: <%= article.likes.count %> Dislike: <%= article.dislikes.count %> </p>
         Posted on <%= article.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%B %d %H:%M") %> by <%= link_to article.author, user_path(article.author) %>
       <br>
@@ -35,18 +37,17 @@
           <%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: 'You are about to delete this post. Are you sure?' } %><br>
       <% end %>
       <br>
-    <% end %>
+    </div><% end %>
     <%= form_tag(articles_path, method: :get) do %>
       <%= hidden_field_tag :search, '!top' %>
-      <%= submit_tag 'View more liked posts', name: nil %>
-    <% end %>
+      <%= submit_tag 'View more liked posts', name: nil %><% end %>
    </td>
 <!----------------------------- Liked posts ---------------------------------->
 
 <!----------------------------- Newest posts ---------------------------------->
     <td>
     <% @articles.order('created_at DESC').limit(5).each do |article| %>
-        <strong><%= link_to article.title, article_path(article) %></strong>
+        <div id="corners"><strong><%= link_to article.title, article_path(article) %></strong>
       <p>[<%= link_to Category.find(article.category_id).name, category_path(article.category_id) %>] Likes: <%= article.likes.count %> Dislike: <%= article.dislikes.count %> </p>
         Posted on <%= article.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%B %d %H:%M") %> by <%= link_to article.author, user_path(article.author) %>
       <br>
@@ -55,7 +56,7 @@
           <%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: 'You are about to delete this post. Are you sure?' } %><br>
       <% end %>
       <br>
-    <% end %>
+    </div><% end %>
     <%= form_tag(articles_path, method: :get) do %>
       <%= hidden_field_tag :search, '!new' %>
       <%= submit_tag 'View more new posts', name: nil %>
