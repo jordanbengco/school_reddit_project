@@ -9,7 +9,7 @@ end
 # Base configuration recipe in Chef.
 package "wget"
 package "ntp"
-package "nginx"
+#package "nginx"
 package "postgresql"
 package "git"
 
@@ -31,13 +31,13 @@ execute 'ntp_restart' do
   command 'service ntp restart'
 end
 
-cookbook_file "nginx-default" do
-  path "/etc/nginx/sites-available/default"
-end
+#cookbook_file "nginx-default" do
+#  path "/etc/nginx/sites-available/default"
+#end
 
-execute 'nginx_restart' do
-  command 'service nginx restart'
-end
+#execute 'nginx_restart' do
+#  command 'service nginx restart'
+#end
 
 execute 'setup_db' do
   command 'echo "CREATE DATABASE mydb; CREATE USER vagrant; GRANT ALL PRIVILEGES ON DATABASE mydb TO vagrant;" | sudo -u postgres psql'
@@ -103,6 +103,17 @@ execute 'yarn_add_webpacker' do
   environment 'HOME' => '/home/vagrant'
 end
 
+#Based of of class notes and 
+#https://www.digitalocean.com/community/tutorials/how-to-deploy-a-rails-app-with-unicorn-and-nginx-on-ubuntu-14-04
+#https://deploy-preview-3018--nostalgic-ptolemy-b01ab8.netlify.app/development/ror/use-unicorn-and-nginx-on-ubuntu-18-04/
+#cookbook_file "unicorn_rails" do
+#  path "/etc/init.d/unicorn_rails"
+#end
+
+#execute "unicorn_permissions" do 
+#  command "sudo chmod +x /etc/init.d/unicorn_rails"
+#end
+
 execute 'load_db_schema' do
   user 'vagrant'
   cwd '/home/vagrant/project/project/'
@@ -119,46 +130,33 @@ execute 'seed_db' do
   environment 'HOME' => '/home/vagrant'
 end
 
-execute 'precompile' do
-  user 'vagrant'
-  cwd '/home/vagrant/project/project/'
-  command 'RAILS_ENV=production sudo rails assets:precompile'
-  environment 'HOME' => '/home/vagrant'
-end
-
-#execute 'rails_run' do
+#execute 'precompile' do
 #  user 'vagrant'
 #  cwd '/home/vagrant/project/project/'
-#  command 'sudo rails server -d -b 0.0.0.0'
-#rails s -e production
+#  command 'RAILS_ENV=production sudo rails assets:precompile'
+#  environment 'HOME' => '/home/vagrant'
 #end
 
-
-#Based of of class notes and 
-#https://www.digitalocean.com/community/tutorials/how-to-deploy-a-rails-app-with-unicorn-and-nginx-on-ubuntu-14-04
-#https://deploy-preview-3018--nostalgic-ptolemy-b01ab8.netlify.app/development/ror/use-unicorn-and-nginx-on-ubuntu-18-04/
-cookbook_file "unicorn_rails" do
-  path "/etc/init.d/unicorn_rails"
+execute 'rails_run' do
+  user 'vagrant'
+  cwd '/home/vagrant/project/project/'
+  command 'sudo rails s -e production -b 0.0.0.0'
+#rails s -e production
 end
 
-execute "unicorn_permissions" do 
-  command "sudo chmod +x /etc/init.d/unicorn_rails"
-end
 
-execute 'unicorn' do
-  command 'sudo update-rc.d unicorn_rails defaults'
-end
+#execute 'unicorn' do
+#  command 'sudo update-rc.d unicorn_rails defaults'
+#end
 
-execute 'start_unicorn' do
-  command 'sudo service unicorn_rails start'
-end
+#execute 'start_unicorn' do
+#  command 'sudo service unicorn_rails start'
+#end
 
 #Run to clean folder for testing:
 #git clean -dfx 
 
 #run to regenerate schema file:
 #rails db:migrate RAILS_ENV=development
-
-
 
 
